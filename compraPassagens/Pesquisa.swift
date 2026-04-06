@@ -11,6 +11,8 @@ struct Pesquisa: View {
     var body: some View {
         NavigationStack {
             
+            
+            
             Card()
         Card()
             Card()

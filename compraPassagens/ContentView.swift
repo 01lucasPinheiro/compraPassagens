@@ -13,14 +13,21 @@ struct ContentView: View {
             // ABA 1
                 TelaCompra()
                 .tabItem {
-                    Label("Home", systemImage: "house")
-            }
+                Image("iconHome") // nome do asset
+                Text(Padroes.homeString)
+                .font(Font.custom("Inter", size: 10))
+                        }
             // ABA 2
 
             Text("Segunda Tela")
-            .tabItem {
-                Label("Config", systemImage: "gear")
-            }
+                .tabItem {
+                Image("iconGostei")
+                .foregroundColor(Color.azulEscuro)// nome do asset
+                    
+                Text(Padroes.homeString)
+                .font(Font.custom("Inter", size: 10))
+                .foregroundColor(Color.azulClaro)
+                        }
         }
     }
 }
