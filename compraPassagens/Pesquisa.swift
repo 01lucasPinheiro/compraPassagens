@@ -11,23 +11,17 @@ struct Pesquisa: View {
     var body: some View {
         NavigationStack {
             
-            
-            VStack(spacing: 20) {
-                
-                Spacer()
-                
-                Text("tela de pesquisa")
-                    .font(.largeTitle)
-                    .bold()
-                
-                Spacer()
-            }
+            Card()
+        Card()
+            Card()
         }
-    }
-}
-#Preview {
-    NavigationStack {
-        Pesquisa()
+        
     }
     
 }
+        #Preview {
+            NavigationStack {
+                Pesquisa()
+            }
+            
+        }

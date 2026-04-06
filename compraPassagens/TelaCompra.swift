@@ -13,7 +13,12 @@ struct TelaCompra: View {
     var body: some View {
         NavigationStack {
             ScrollView(.vertical, showsIndicators: true) {
+                Rectangle()
+                  .foregroundColor(.clear)
+                  .frame(width: 402, height: 270)
+                  .background(Color(red: 0.15, green: 0.3, blue: 0.59))
                 ZStack {
+                    
                    // Color.white.ignoresSafeArea()
                     
                     VStack(spacing: 10) {
