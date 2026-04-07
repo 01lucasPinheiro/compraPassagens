@@ -22,12 +22,14 @@ struct ContentView: View {
             Text("Segunda Tela")
                 .tabItem {
                 Image("iconGostei")
-                .foregroundColor(Color.azulEscuro)// nome do asset
+                .background(Color.red.opacity(1))
+                .foregroundColor(Color.red)// nome do asset
                     
                 Text(Padroes.homeString)
                 .font(Font.custom("Inter", size: 10))
                 .foregroundColor(Color.azulClaro)
                         }
+            
         }
     }
 }
