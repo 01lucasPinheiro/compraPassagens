@@ -10,7 +10,6 @@ import SwiftUI
 struct Card: View {
     
     var body: some View {
-        NavigationStack {
             
             VStack(spacing: 0) {
                 // MARK: - Informações do Voo (Parte Superior)
@@ -47,11 +46,11 @@ struct Card: View {
                             .frame(maxWidth: 120)
                             .padding(.vertical, 5)
                         
-                        Text(Padroes.horario1)
+                        Text(Padroes.horarioCard1)
                             .font(.custom("Baloo 2", size: 12).weight(.medium))
                             .foregroundColor(Color.azulMedio)
                         
-                        Text("Sáb. 19/09")
+                        Text(Padroes.diaCard1)
                             .font(.custom("Inter", size: 12))
                             .foregroundColor(Color.azulEscuro)
                         
@@ -89,12 +88,12 @@ struct Card: View {
                             .frame(maxWidth: 120)
                             .padding(.vertical, 5)
                         
-                        Text(Padroes.horario2)
+                        Text(Padroes.horarioCard2)
                             .font(.custom("Baloo 2", size: 12).weight(.medium))
                             .foregroundColor(Color.azulMedio)
                         
                         
-                        Text("Dom. 20/09")
+                        Text(Padroes.diaCard2)
                             .font(.custom("Inter", size: 12))
                             .foregroundColor(Color.azulEscuro)
                     }
@@ -105,23 +104,27 @@ struct Card: View {
                 
                 // MARK: - Barra de Preço e Botão (Parte Inferior)
                 HStack {
-                    Text("BRL 5.844,00")
+                    Text(Padroes.precoCard1)
                         .font(.custom("Baloo 2", size: 16).weight(.medium))
                         .foregroundColor(Color.bege)
                     
                     Spacer()
                     
-                    Button(action: {
-                        // Ação do botão de escolha
-                    }) {
-                        Text("Escolher")
-                            .font(.custom("Baloo 2", size: 12).weight(.medium))
-                            .foregroundColor(Color.azulEscuro)
-                            .padding(.horizontal, 24)
-                            .padding(.vertical, 8)
-                            .background(Color.verde)
-                            .cornerRadius(50)
-                    }
+                    NavigationLink(destination: ResumoCompra()) {
+                                            Button(action: {
+                                                // Ação do botão de escolha
+                                            }) {
+                                                NavigationLink(destination: ResumoCompra()) {
+                                                    Text("Escolher")
+                                                        .font(.custom("Baloo 2", size: 12).weight(.medium))
+                                                        .foregroundColor(Color.azulEscuro)
+                                                        .padding(.horizontal, 24)
+                                                        .padding(.vertical, 8)
+                                                        .background(Color.verde)
+                                                        .cornerRadius(50)
+                                                }
+                                            }
+                                        }
                 }
                 .padding(.horizontal, 24)
                 .padding(.vertical, 12)
@@ -135,7 +138,7 @@ struct Card: View {
         }
     }
     
-}
+
 
 #Preview {
     NavigationStack {
