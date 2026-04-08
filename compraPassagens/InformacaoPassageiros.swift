@@ -77,27 +77,20 @@ struct InformacaoPassageiros: View {
                     .stroke(Color.gray, lineWidth: 0.7)
             )
             .padding(.horizontal, 50)
-                
-            VStack{
-                Text("Avançar")
-                    .frame(width: 179, height: 34)
+            
+            NavigationLink(destination: InformacoesPagamento()) {
+                VStack {
+                    Text("Avançar")
+                        .foregroundColor(.white) // Garante que o texto não fique no azul padrão de links
+                        .frame(width: 179, height: 34)
+                }
+                .background(Color(red: 106/255, green: 150/255, blue: 244/255))
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray, lineWidth: 0.7)
+                )
             }
-            .background(Color(red: 106/255, green: 150/255, blue: 244/255))
-            .cornerRadius(10)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray, lineWidth: 0.7)
-            )
-            
-            
-            
-            
-
-                
-                
-                    
-
-           
         }
     }
 }
