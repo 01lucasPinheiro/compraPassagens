@@ -12,11 +12,15 @@ struct TelaCompra: View {
     
     var body: some View {
         NavigationStack {
+<<<<<<< HEAD
             ScrollView(.vertical, showsIndicators: true) {
 //                Rectangle()
 //                  .foregroundColor(.clear)
 //                  .frame(width: 402, height: 270)
 //                  .background(Color(red: 0.15, green: 0.3, blue: 0.59))
+=======
+            ScrollView(.vertical, showsIndicators: false) {
+>>>>>>> main
                 ZStack {
                     
                    // Color.white.ignoresSafeArea()

@@ -109,6 +109,7 @@ struct Card: View {
                         .foregroundColor(Color.bege)
                     
                     Spacer()
+<<<<<<< HEAD
                     
                     NavigationLink(destination: ResumoCompra()) {
                                             Button(action: {
@@ -125,6 +126,23 @@ struct Card: View {
                                                 }
                                             }
                                         }
+=======
+                    NavigationLink(destination: ResumoCompra()) {
+                        Button(action: {
+                            // Ação do botão de escolha
+                        }) {
+                            NavigationLink(destination: ResumoCompra()) {
+                                Text("Escolher")
+                                    .font(.custom("Baloo 2", size: 12).weight(.medium))
+                                    .foregroundColor(Color.azulEscuro)
+                                    .padding(.horizontal, 24)
+                                    .padding(.vertical, 8)
+                                    .background(Color.verde)
+                                    .cornerRadius(50)
+                            }
+                        }
+                    }
+>>>>>>> main
                 }
                 .padding(.horizontal, 24)
                 .padding(.vertical, 12)
@@ -141,8 +159,7 @@ struct Card: View {
 
 
 #Preview {
-    NavigationStack {
-        Card()
-    }
     
+    Card()
+ 
 }

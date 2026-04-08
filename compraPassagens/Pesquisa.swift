@@ -7,19 +7,20 @@
 import SwiftUI
 
 struct Pesquisa: View {
+    <<<<<<< HEAD
     // MARK: - Paleta de Cores
-
+    
     
     var body: some View {
         VStack(spacing: 12) {
-           
+            
             VStack{
-
+                
                 HStack(spacing: 30) {
                     
                     // Campo de Trecho (São Paulo -> Tóquio)
                     HStack {
-
+                        
                         Text(Padroes.nomeCid1)
                         // Dica: Aqui você pode colocar um ícone se houver no design
                         Image(systemName: "arrow.left.arrow.right")
@@ -50,7 +51,7 @@ struct Pesquisa: View {
                             .padding(.horizontal, 10)
                             .frame(height: 35) // Altura ajustada para melhor área de toque
                             .background(Color.bege)
-                            .cornerRadius(5)}
+                        .cornerRadius(5)}
                     
                     VStack{
                         Text("Volta")
@@ -59,10 +60,10 @@ struct Pesquisa: View {
                             .padding(.horizontal, 10)
                             .frame(height: 35) // Altura ajustada para melhor área de toque
                             .background(Color.azulClaro)
-                            .cornerRadius(5)}
-                    }
+                        .cornerRadius(5)}
+                }
             }
-
+            
         }
         .padding(.horizontal, 20)
         // Mantemos a altura do container azul conforme seu código original
@@ -71,16 +72,63 @@ struct Pesquisa: View {
         .background(Color.azulMedio)
         
         ScrollView(.vertical, showsIndicators: true) {
-        LazyVStack {
-        ForEach(0..<5) { i in Card()
-        .padding(10)
-                                }
+            LazyVStack {
+                ForEach(0..<5) { i in Card()
+                        .padding(10)
+                }
+            }
+        }
+        =======
+        @State private var origem: String = ""
+        @State private var destino: String = ""
+        var body: some View {
+            VStack(spacing: 0) {
+                
+                VStack(spacing:  10) {
+                    VStack(spacing: 10) {
+                        VStack{
+                            TextField("Origem", text: $origem)
+                                .cornerRadius(10)
+                            Divider()
+                            TextField("Destino", text: $destino)
+                        }
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray, lineWidth: 0.7)
+                        )
+                        
+                        HStack{
+                            Text("Classe").opacity(0.5)
+                            Spacer()
+                            Text("Data").opacity(0.5)
+                            Spacer()
+                            Text("passageiros").opacity(0.5)
+                        }.padding()
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.gray, lineWidth: 0.7)
+                            )
+                        
+                    }
+                    .padding()
+                    .background(Color.blue.opacity(0.05))
+                    
+                    
+                    ScrollView(.vertical, showsIndicators: true) {
+                        LazyVStack {
+                            ForEach(0..<5) { i in
+                                Card()
+                                    .padding(5)
                             }
                         }
+                    }
+                }
+                .ignoresSafeArea(edges: .bottom)
+            }
+        }
     }
-    
 }
-    
 
 #Preview {
     Pesquisa()
