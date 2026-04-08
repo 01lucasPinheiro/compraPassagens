@@ -45,7 +45,7 @@ struct CardPromocional: View {
                             .font(.custom("Inter", size: 12))
                             .foregroundColor(Color.azulEscuro)
                     }
-                    
+                    //banana
                     Spacer()
                     
                     // Tracinho central
