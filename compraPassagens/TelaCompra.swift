@@ -8,8 +8,6 @@ import SwiftUI
 
 struct TelaCompra: View {
     @State private var destino = ""
-    let items = ["Card 1", "Card 2", "Card 3", "Card 4", "Card 5"]
-    
     var body: some View {
         NavigationStack {
             
@@ -95,25 +93,28 @@ struct TelaCompra: View {
                                         .bold()
                                     Spacer()
                                 }.padding(.horizontal)
-                                
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    LazyHStack(spacing: 20) {
-                                        ForEach(items, id: \.self) { item in
+                            }
+                                VStack{
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        LazyHStack(spacing: 20) {
+                                            CardPromocional(Imagem: "imgTokio" ,DataIda: "Qui, 23/04", DataVolta: "Qui, 30/04", Preco: "6.000", Destino: "Tóquio")
                                             
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .fill(Color.blue)
-                                                .frame(width: 186, height: 300)
-                                                .overlay(
-                                                    Text(item)
-                                                        .foregroundColor(.white)
-                                                        .font(.headline)
-                                                )
-                                                .padding(.vertical)
+                                            CardPromocional(Imagem: "imgDisney" ,DataIda: "Dom, 24/05", DataVolta: "Ter, 09/06", Preco: "1.500", Destino: "Disney Orlando")
+                                            
+                                            CardPromocional(Imagem: "imgBali" ,DataIda: "Qui, 02/04", DataVolta: "Qui, 15/04", Preco: "8.800", Destino: "Bali")
+                                            
+                                            CardPromocional(Imagem: "imgGenebra" ,DataIda: "Dom, 25/03", DataVolta: "Dom, 07/07", Preco: "5.200", Destino: "Genebra")
+                                            
+                                            CardPromocional(Imagem: "imgLisboa" ,DataIda: "Sab, 26/05", DataVolta: "Sex, 06/06", Preco: "4.500", Destino: "Lisboa")
+                                            
                                         }
                                     }
+                                    .scrollTargetLayout()
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 350)
                                 }
-                                .scrollTargetLayout()
-                            }
+                                
+                            
                             .scrollTargetBehavior(.viewAligned)
                             .contentMargins(.horizontal, 10, for: .scrollContent)
                         }
