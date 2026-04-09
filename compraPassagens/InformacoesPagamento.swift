@@ -26,16 +26,16 @@ struct InformacoesPagamento: View {
                 .background(Color.gray.opacity(0.7))
                 .cornerRadius(10)
             
-            Text("Informacoes pessoais")
+            Text("Informações pessoais")
                 .padding(.all, 5)
                 .frame(width: 300)
                 .background(Color.gray.opacity(0.7))
                 .cornerRadius(10)
         }.padding()
         
-        Text("Informacoes de pagamento")
+        Text("Informações de pagamento")
         VStack(spacing: 20){
-            Text("pagemento")
+            Text("Opções de pagamento")
             VStack {
                 DisclosureGroup(metodoPagamento, isExpanded: $estaExpandido) {
                     VStack(alignment: .leading) {
@@ -48,6 +48,7 @@ struct InformacoesPagamento: View {
                     }
                     .padding()
                 }
+                .foregroundStyle(Color.azulEscuro)
                 .padding()
                 .background(Color.gray.opacity(0.1))
                 .cornerRadius(10)
@@ -55,26 +56,20 @@ struct InformacoesPagamento: View {
             .padding()
         }
         .padding(10)
-        .background(Color(red: 206/255, green: 234/255, blue: 238/255))
+        .background(Color.azulClaro)
         .cornerRadius(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.gray, lineWidth: 0.7)
-        )
+
         .padding(.horizontal, 50)
         
         NavigationLink(destination: InformacoesPagamento()) {
             VStack {
                 Text("Avançar")
-                    .foregroundColor(.white) // Garante que o texto não fique no azul padrão de links
+                    .foregroundColor(Color.branco) // Garante que o texto não fique no azul padrão de links
                     .frame(width: 179, height: 34)
             }
-            .background(Color(red: 106/255, green: 150/255, blue: 244/255))
-            .cornerRadius(10)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray, lineWidth: 0.7)
-            )
+            .background(Color.azulMedio)
+            .cornerRadius(50)
+
         }
     }
     

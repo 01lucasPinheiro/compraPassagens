@@ -10,26 +10,36 @@ import SwiftUI
 struct Card: View {
     
     var body: some View {
-            
+        
+        
+        ZStack{
             VStack(spacing: 0) {
-                // MARK: - Informações do Voo (Parte Superior)
-                HStack(alignment: .center) {
+                
+                VStack{
+                    VStack{
+                        HStack(alignment: .center) {
+                            Image(systemName: "airplane.circle.fill") // Substitua pela sua imagem
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 24)
+                            .foregroundColor(Color.gray)}}.padding(.top,15)
                     
-                    Rectangle()
-                      .foregroundColor(.clear)
-                      .frame(width: 0, height: 110)
-                    
+                    HStack{ // 2. Linha Tracejada
+                        Line()
+                            .stroke(style: StrokeStyle(lineWidth: 0.7, dash: [2]))
+                            .frame(height: 1)
+                            .foregroundColor(Color.azulEscuro)
+                            .padding(.vertical, 2)
+                        .padding(.horizontal, 16)}
+                }
+                
+                
+                
+                HStack(alignment: .top) {
                     
                     // Origem (Esquerda)
                     VStack(alignment: .leading, spacing: 4) {
                         
-//                        Path { path in  LINHA TRACEJADA
-//                                path.move(to: CGPoint(x: 0, y: 0))
-//                                path.addLine(to: CGPoint(x: 300, y: 0)) // 80 é a largura da linha
-//                            }
-//                        .stroke(Color.azulMedio, style: StrokeStyle(lineWidth: 0.5, dash: [2, 2]))
-//                            .frame(width: 80, height: 1)
-//                            .padding(.vertical, 20)
                         
                         Text(Padroes.nomeCid1)
                             .font(.custom("Inter", size: 12))
@@ -54,7 +64,6 @@ struct Card: View {
                             .font(.custom("Inter", size: 12))
                             .foregroundColor(Color.azulEscuro)
                         
-                        
                     }
                     
                     Spacer()
@@ -65,9 +74,10 @@ struct Card: View {
                             .font(.custom("Inter", size: 10))
                             .foregroundColor(Color.azulEscuro)
                             .multilineTextAlignment(.center)
-                      
-                    }
-
+                        
+                    }.padding(.top, 40)
+                        .frame(height: 70)
+                    
                     Spacer()
                     
                     // Destino (Direita)
@@ -100,7 +110,6 @@ struct Card: View {
                 }
                 .padding(.horizontal, 24)
                 .padding(.vertical, 20)
-                .background(Color.bege)
                 
                 // MARK: - Barra de Preço e Botão (Parte Inferior)
                 HStack {
@@ -109,41 +118,43 @@ struct Card: View {
                         .foregroundColor(Color.bege)
                     
                     Spacer()
-
+                    
                     
                     NavigationLink(destination: ResumoCompra()) {
-                                            Button(action: {
-                                                // Ação do botão de escolha
-                                            }) {
-                                                NavigationLink(destination: ResumoCompra()) {
-                                                    Text("Escolher")
-                                                        .font(.custom("Baloo 2", size: 12).weight(.medium))
-                                                        .foregroundColor(Color.azulEscuro)
-                                                        .padding(.horizontal, 24)
-                                                        .padding(.vertical, 8)
-                                                        .background(Color.verde)
-                                                        .cornerRadius(50)
-                                                }
-                                            }
-                                        }
-
+                        Button(action: {
+                            // Ação do botão de escolha
+                        }) {
+                            NavigationLink(destination: ResumoCompra()) {
+                                Text("Escolher")
+                                    .font(.custom("Baloo 2", size: 12).weight(.medium))
+                                    .foregroundColor(Color.azulEscuro)
+                                    .padding(.horizontal, 24)
+                                    .padding(.vertical, 8)
+                                    .background(Color.verde)
+                                    .cornerRadius(50)
+                            }
+                        }
+                    }
+                    
                 }
                 .padding(.horizontal, 24)
                 .padding(.vertical, 12)
                 .background(Color.azulEscuro)
             }
-            .cornerRadius(10)
+            
             // Definindo uma largura máxima para o card não esticar em iPads/Telas grandes
             .frame(maxWidth: 350)
             // Adicionando uma leve sombra para destaque (opcional)
+            
+        }.background(Color.bege)
             .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 2)
-        }
+            .cornerRadius(10)
     }
+        
     
-
+    
+}
 
 #Preview {
-    
     Card()
- 
 }
