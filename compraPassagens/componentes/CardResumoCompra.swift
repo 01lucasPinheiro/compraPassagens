@@ -19,12 +19,12 @@ struct CardResumoCompra: View {
                         
                         
                         Text("Passageiro")
-                            .font(.custom("Inter", size: 12))
-                            .foregroundColor(Color.azulMedio)
+                            .font(Font.custom("Inter", size: 12))
+                            .foregroundColor(Color.azulEscuro)
                         
                         Text("Tais Emily Lucas")
-                            .font(.custom("Baloo 2", size: 16).weight(.medium))
-                            .foregroundColor(Color.azulEscuro)
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .foregroundColor(Color.azulMedio)
                             .padding(.vertical, 3)
                     }
                     
@@ -33,8 +33,8 @@ struct CardResumoCompra: View {
                     VStack(alignment: .trailing, spacing: 4) {
                         
                         Text("Companhia")
-                            .font(.custom("Inter", size: 12))
-                            .foregroundColor(Color.azulMedio)
+                            .font(Font.custom("Inter", size: 12))
+                            .foregroundColor(Color.azulEscuro)
                         
                         Image(systemName: "airplane.circle.fill") // Substitua pela sua imagem
                             .resizable()
@@ -55,12 +55,12 @@ struct CardResumoCompra: View {
                         
                         
                         Text("Origem")
-                            .font(.custom("Inter", size: 12))
-                            .foregroundColor(Color.azulMedio)
+                            .font(Font.custom("Inter", size: 12))
+                            .foregroundColor(Color.azulEscuro)
                         
                         Text(Padroes.nomeCid1)
-                            .font(.custom("Baloo 2", size: 16).weight(.medium))
-                            .foregroundColor(Color.azulEscuro)
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .foregroundColor(Color.azulMedio)
                             .padding(.vertical, 3)
                     }
                     
@@ -69,12 +69,12 @@ struct CardResumoCompra: View {
                     VStack(alignment: .trailing, spacing: 4) {
                         
                         Text("Destino")
-                            .font(.custom("Inter", size: 12))
-                            .foregroundColor(Color.azulMedio)
+                            .font(Font.custom("Inter", size: 12))
+                            .foregroundColor(Color.azulEscuro)
                         
                         Text(Padroes.nomeCid2)
-                            .font(.custom("Baloo 2", size: 16).weight(.medium))
-                            .foregroundColor(Color.azulEscuro)
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .foregroundColor(Color.azulMedio)
                             .padding(.vertical, 3)
                         
                     }
@@ -87,12 +87,12 @@ struct CardResumoCompra: View {
                         
                         
                         Text("Data de ida")
-                            .font(.custom("Inter", size: 12))
-                            .foregroundColor(Color.azulMedio)
+                            .font(Font.custom("Inter", size: 12))
+                            .foregroundColor(Color.azulEscuro)
                         
                         Text("Sáb. 19 set.")
-                            .font(.custom("Baloo 2", size: 16).weight(.medium))
-                            .foregroundColor(Color.azulEscuro)
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .foregroundColor(Color.azulMedio)
                             .padding(.vertical, 3)
                     }
                     
@@ -101,12 +101,12 @@ struct CardResumoCompra: View {
                     VStack(alignment: .trailing, spacing: 4) {
                         
                         Text("Duração")
-                            .font(.custom("Inter", size: 12))
-                            .foregroundColor(Color.azulMedio)
+                            .font(Font.custom("Inter", size: 12))
+                            .foregroundColor(Color.azulEscuro)
                         
                         Text("29h 15m")
-                            .font(.custom("Baloo 2", size: 16).weight(.medium))
-                            .foregroundColor(Color.azulEscuro)
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .foregroundColor(Color.azulMedio)
                             .padding(.vertical, 3)
                         
                     }
@@ -119,12 +119,12 @@ struct CardResumoCompra: View {
                         
                         
                         Text("Ticket")
-                            .font(.custom("Inter", size: 12))
-                            .foregroundColor(Color.azulMedio)
+                            .font(Font.custom("Inter", size: 12))
+                            .foregroundColor(Color.azulEscuro)
                         
                         Text("EL-177")
-                            .font(.custom("Baloo 2", size: 16).weight(.medium))
-                            .foregroundColor(Color.azulEscuro)
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .foregroundColor(Color.azulMedio)
                             .padding(.vertical, 3)
                     }
                     
@@ -133,12 +133,12 @@ struct CardResumoCompra: View {
                     VStack(alignment: .trailing, spacing: 4) {
                         
                         Text("Classe")
-                            .font(.custom("Inter", size: 12))
-                            .foregroundColor(Color.azulMedio)
+                            .font(Font.custom("Inter", size: 12))
+                            .foregroundColor(Color.azulEscuro)
                         
                         Text(Padroes.classeCard1)
-                            .font(.custom("Baloo 2", size: 16).weight(.medium))
-                            .foregroundColor(Color.azulEscuro)
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .foregroundColor(Color.azulMedio)
                             .padding(.vertical, 3)
                         
                     }

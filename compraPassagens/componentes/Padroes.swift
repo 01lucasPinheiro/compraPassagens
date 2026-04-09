@@ -60,7 +60,7 @@ struct PadraoFiltro: View {
     
     var body: some View {
         Text(text)
-            .font(.custom("Baloo 2", size: 12).weight(.medium))
+            .font(Font.custom("Baloo2-Medium", size: 12))
             .foregroundColor(txtCor)
             .frame(maxWidth: .infinity) // Faz os botões dividirem a largura da tela igualmente
             .frame(height: 35)

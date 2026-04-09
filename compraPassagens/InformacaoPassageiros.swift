@@ -11,17 +11,22 @@ struct InformacaoPassageiros: View {
     var body: some View {
         VStack{
             Text("Informações Passageiros")
+                .font(Font.custom("Baloo2-Medium", size: 20))
+                .foregroundColor(Color.azulMedio)
+            
             VStack(spacing: 20){
                 VStack{
                     HStack{
                         Text("Passageiro")
-                            .font(.system(size: 12))
-                            .foregroundStyle(Color(red:24/255, green: 50/255, blue: 100/255))
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .foregroundColor(Color.azulEscuro)
+                            .padding(.top, 5)
+                        
                         Spacer()
-                    }
+                    }.padding(-2)
                     TextField("Passageiro", text: .constant(""))
-                        .padding(.all, 5)
-                        .frame(width: 300)
+                        .padding(.all, 10)
+                        .frame(width: 270)
                         .background(Color.white.opacity(0.7))
                         .cornerRadius(10)
                         
@@ -29,67 +34,68 @@ struct InformacaoPassageiros: View {
                 VStack{
                     HStack{
                         Text("Email")
-                            .font(.system(size: 12))
-                            .foregroundStyle(Color(red:24/255, green: 50/255, blue: 100/255))
+                            .font(Font.custom("Baloo2-Medium", size: 15))
+                            .foregroundColor(Color.azulEscuro)
+                        
                         Spacer()
-                    }
+                    }.padding(-2)
                     TextField("Email", text: .constant(""))
-                        .padding(.all, 5)
-                        .frame(width: 300)
+                        .padding(.all, 10)
+                        .frame(width: 270)
                         .background(Color.white.opacity(0.7))
                         .cornerRadius(10)
                 }
                 VStack{
                     HStack{
                         Text("Data de nascimento")
-                            .font(.system(size: 12))
-                            .foregroundStyle(Color(red:24/255, green: 50/255, blue: 100/255))
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .foregroundColor(Color.azulEscuro)
+                        
                         Spacer()
-                    }
+                    }.padding(-2)
                     TextField("Data de nascimento", text: .constant(""))
-                        .padding(.all, 5)
-                        .frame(width: 300)
+                        .padding(.all, 10)
+                        .frame(width: 270)
                         .background(Color.white.opacity(0.7))
                         .cornerRadius(10)
                 }
                 VStack{
                     HStack{
                         Text("Passaporte")
-                            .font(.system(size: 12))
-                            .foregroundStyle(Color(red:24/255, green: 50/255, blue: 100/255))
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .foregroundColor(Color.azulEscuro)
+                            
+                        
                         Spacer()
-                    }
+                    }.padding(-2)
                     TextField("Passaporte", text: .constant(""))
-                        .padding(.all, 5)
-                        .frame(width: 300)
+                        .padding(.all, 10)
+                        .frame(width: 270)
                         .background(Color.white.opacity(0.7))
                         .cornerRadius(10)
-                }
+                }.padding(.bottom, 5)
                 
                     
                     
                 }
-            .padding(10)
-            .background(Color(red: 206/255, green: 234/255, blue: 238/255))
+            .padding(20)
+            .background(Color.azulClaro)
             .cornerRadius(10)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray, lineWidth: 0.7)
-            )
             .padding(.horizontal, 50)
             
+                        
             NavigationLink(destination: InformacoesPagamento()) {
-                VStack {
+                VStack{
                     Text("Avançar")
-                        .foregroundColor(.white) // Garante que o texto não fique no azul padrão de links
+                        .font(Font.custom("Baloo2-Medium", size: 16))
+                        .foregroundColor(Color.branco)
+                        .foregroundColor(Color.azulClaro)
                         .frame(width: 179, height: 34)
                 }
-                .background(Color(red: 106/255, green: 150/255, blue: 244/255))
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray, lineWidth: 0.7)
-                )
+                .background(Color.azulMedio)
+                .cornerRadius(50)
+                .padding(.top, 10)
+
             }
         }
     }

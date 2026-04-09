@@ -6,13 +6,45 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E4440CCF2F882D6A0096F0C7 /* Baloo2-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4440CCC2F882D6A0096F0C7 /* Baloo2-Medium.ttf */; };
+		E4440CD02F882D6A0096F0C7 /* Baloo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4440CCA2F882D6A0096F0C7 /* Baloo2-Bold.ttf */; };
+		E4440CD12F882D6A0096F0C7 /* Baloo2-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4440CCB2F882D6A0096F0C7 /* Baloo2-ExtraBold.ttf */; };
+		E4440CD22F882D6A0096F0C7 /* Baloo2-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4440CCE2F882D6A0096F0C7 /* Baloo2-SemiBold.ttf */; };
+		E4440CD32F882D6A0096F0C7 /* Baloo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4440CCD2F882D6A0096F0C7 /* Baloo2-Regular.ttf */; };
+		E4440D422F882DAD0096F0C7 /* InterItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4440D402F882DAD0096F0C7 /* InterItalic.ttf */; };
+		E4440D432F882DAD0096F0C7 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4440D412F882DAD0096F0C7 /* Inter.ttf */; };
+		E4440D452F882DB90096F0C7 /* Baloo 2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4440D442F882DB90096F0C7 /* Baloo 2.ttf */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		82569DD22F7AEA8600D98650 /* compraPassagens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = compraPassagens.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4440CCA2F882D6A0096F0C7 /* Baloo2-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-Bold.ttf"; sourceTree = "<group>"; };
+		E4440CCB2F882D6A0096F0C7 /* Baloo2-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-ExtraBold.ttf"; sourceTree = "<group>"; };
+		E4440CCC2F882D6A0096F0C7 /* Baloo2-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-Medium.ttf"; sourceTree = "<group>"; };
+		E4440CCD2F882D6A0096F0C7 /* Baloo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-Regular.ttf"; sourceTree = "<group>"; };
+		E4440CCE2F882D6A0096F0C7 /* Baloo2-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-SemiBold.ttf"; sourceTree = "<group>"; };
+		E4440D402F882DAD0096F0C7 /* InterItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = InterItalic.ttf; sourceTree = "<group>"; };
+		E4440D412F882DAD0096F0C7 /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inter.ttf; sourceTree = "<group>"; };
+		E4440D442F882DB90096F0C7 /* Baloo 2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo 2.ttf"; sourceTree = "<group>"; };
+		E4440D462F882FE40096F0C7 /* compraPassagens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = compraPassagens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E4440D482F882FF40096F0C7 /* Exceptions for "compraPassagens" folder in "compraPassagens" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 82569DD12F7AEA8600D98650 /* compraPassagens */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		82569DD42F7AEA8600D98650 /* compraPassagens */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E4440D482F882FF40096F0C7 /* Exceptions for "compraPassagens" folder in "compraPassagens" target */,
+			);
 			path = compraPassagens;
 			sourceTree = "<group>";
 		};
@@ -32,18 +64,26 @@
 		82569DC92F7AEA8600D98650 = {
 			isa = PBXGroup;
 			children = (
+				E4440CC92F882D4B0096F0C7 /* Fonts */,
 				82569DD42F7AEA8600D98650 /* compraPassagens */,
-				82569DD32F7AEA8600D98650 /* Products */,
+				E4440D462F882FE40096F0C7 /* compraPassagens.app */,
 			);
 			sourceTree = "<group>";
 		};
-		82569DD32F7AEA8600D98650 /* Products */ = {
+		E4440CC92F882D4B0096F0C7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				82569DD22F7AEA8600D98650 /* compraPassagens.app */,
+				E4440CCA2F882D6A0096F0C7 /* Baloo2-Bold.ttf */,
+				E4440CCB2F882D6A0096F0C7 /* Baloo2-ExtraBold.ttf */,
+				E4440CCC2F882D6A0096F0C7 /* Baloo2-Medium.ttf */,
+				E4440CCD2F882D6A0096F0C7 /* Baloo2-Regular.ttf */,
+				E4440CCE2F882D6A0096F0C7 /* Baloo2-SemiBold.ttf */,
+				E4440D402F882DAD0096F0C7 /* InterItalic.ttf */,
+				E4440D412F882DAD0096F0C7 /* Inter.ttf */,
+				E4440D442F882DB90096F0C7 /* Baloo 2.ttf */,
 			);
-			name = Products;
-			sourceTree = "<group>";
+			path = Fonts;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -67,7 +107,7 @@
 			packageProductDependencies = (
 			);
 			productName = compraPassagens;
-			productReference = 82569DD22F7AEA8600D98650 /* compraPassagens.app */;
+			productReference = E4440D462F882FE40096F0C7 /* compraPassagens.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -95,7 +135,7 @@
 			mainGroup = 82569DC92F7AEA8600D98650;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 82569DD32F7AEA8600D98650 /* Products */;
+			productRefGroup = 82569DC92F7AEA8600D98650;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -109,6 +149,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4440D452F882DB90096F0C7 /* Baloo 2.ttf in Resources */,
+				E4440CCF2F882D6A0096F0C7 /* Baloo2-Medium.ttf in Resources */,
+				E4440CD02F882D6A0096F0C7 /* Baloo2-Bold.ttf in Resources */,
+				E4440CD12F882D6A0096F0C7 /* Baloo2-ExtraBold.ttf in Resources */,
+				E4440CD22F882D6A0096F0C7 /* Baloo2-SemiBold.ttf in Resources */,
+				E4440D422F882DAD0096F0C7 /* InterItalic.ttf in Resources */,
+				E4440D432F882DAD0096F0C7 /* Inter.ttf in Resources */,
+				E4440CD32F882D6A0096F0C7 /* Baloo2-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +301,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = compraPassagens/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -284,6 +333,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = compraPassagens/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

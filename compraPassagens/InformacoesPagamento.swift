@@ -19,31 +19,41 @@ struct InformacoesPagamento: View {
             Spacer()
                 VStack(spacing: 16) {
                     Text("Tarifa")
-                        .padding(.all, 5)
-                        .frame(width: 300)
-                        .background(Color.gray.opacity(0.2))
+                        .font(Font.custom("Inter", size: 16))
+                        .foregroundColor(Color.azulEscuro)
+                        .padding(.all, 10)
+                        .frame(width: 340)
+                        .background(Color.bege)
                         .cornerRadius(10)
                     
                     Text("Seguro viagem")
-                        .padding(.all, 5)
-                        .frame(width: 300)
-                        .background(Color.gray.opacity(0.2))
+                        .font(Font.custom("Inter", size: 16))
+                        .foregroundColor(Color.azulEscuro)
+                        .padding(.all, 10)
+                        .frame(width: 340)
+                        .background(Color.bege)
                         .cornerRadius(10)
                     
                     Text("Informações pessoais")
-                        .padding(.all, 5)
-                        .frame(width: 300)
-                        .background(Color.gray.opacity(0.2))
+                        .font(Font.custom("Inter", size: 16))
+                        .foregroundColor(Color.azulEscuro)
+                        .padding(.all, 10)
+                        .frame(width: 340)
+                        .background(Color.bege)
                         .cornerRadius(10)
                 }
                 .padding(.top)
 
                 Text("Informações de pagamento")
-                    .font(.headline)
+                    .font(Font.custom("Baloo2-Medium", size: 20))
+                    .foregroundColor(Color.azulMedio)
+                    .padding(.top, 20)
+
 
                 VStack(spacing: 10) {
-                    Text("pagamento")
-                        .font(.caption)
+                    Text("Opções de pagamento")
+                        .font(Font.custom("Baloo2-Medium", size: 16))
+                        .foregroundColor(Color.azulEscuro)
                     
                     DisclosureGroup(metodoPagamento, isExpanded: $estaExpandido) {
                         VStack(alignment: .leading) {
@@ -64,22 +74,23 @@ struct InformacoesPagamento: View {
                             }
                         }
                         .padding()
-                        .foregroundStyle(Color.black)
                     }
                     .padding()
-                    .background(Color.gray.opacity(0.1))
+                    .foregroundColor(Color.azulMedio)
+                    .background(Color.white.opacity(0.5))
                     .cornerRadius(10)
                     
                     TextField("Cupons e pontos", text: .constant(""))
+                        .font(Font.custom("Inter", size: 16))
+                        .foregroundColor(Color.azulMedio)
                         .padding()
-                        .background(Color.gray.opacity(0.1))
+                        .background(Color.white.opacity(0.7))
                         .cornerRadius(10)
                 }
                 .padding()
-                .background(Color(red: 206/255, green: 234/255, blue: 238/255))
+                .background(Color.azulClaro)
                 .cornerRadius(10)
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 0.7))
-                .padding(.horizontal, 40)
+                .padding(.horizontal, 30)
                 
                 Button(action: {
                     withAnimation {
@@ -87,10 +98,12 @@ struct InformacoesPagamento: View {
                     }
                 }) {
                     Text("Realizar Pagamento")
-                        .foregroundColor(.white)
-                        .frame(width: 250, height: 44)
-                        .background(Color(red: 106/255, green: 150/255, blue: 244/255))
-                        .cornerRadius(10)
+                        .font(Font.custom("Baloo2-SemiBold", size: 16))
+                        .foregroundColor(Color.branco)
+                        .frame(width: 200, height: 35)
+                        .background(Color.azulMedio)
+                        .cornerRadius(50)
+                        .padding(.top, 20)
                 }
                 
                 Spacer()
@@ -105,36 +118,36 @@ struct InformacoesPagamento: View {
                         withAnimation { mostrarConfirmacao = false }
                     }
 
-                VStack(spacing: 20) {
+                VStack(spacing: 30) {
                     Image(systemName: "checkmark.circle.fill")
                         .resizable()
                         .frame(width: 80, height: 80)
-                        .foregroundColor(.green)
+                        .foregroundColor(Color.verde)
                     
                     Text("Pagamento Confirmado!")
-                        .font(.title3)
-                        .bold()
+                        .font(Font.custom("Baloo2-SemiBold", size: 20))
+                        .foregroundColor(Color.azulMedio)
                     
                     Text("Sua reserva foi processada com sucesso.")
-                        .font(.subheadline)
+                        .font(Font.custom("Inter", size: 16))
+                        .foregroundColor(Color.azulEscuro)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(.gray)
 
                     Button(action: {
                         withAnimation { mostrarConfirmacao = false }
                     }) {
                         Text("OK")
-                            .bold()
-                            .foregroundColor(.white)
+                            .font(Font.custom("Baloo2-SemiBold", size: 16))
+                            .foregroundColor(Color.branco)
                             .frame(maxWidth: .infinity)
                             .frame(height: 44)
-                            .background(Color.blue)
-                            .cornerRadius(10)
+                            .background(Color.azulMedio)
+                            .cornerRadius(50)
                     }
                 }
                 .padding(30)
                 .background(Color.white)
-                .cornerRadius(25)
+                .cornerRadius(10)
                 .shadow(radius: 20)
                 .padding(.horizontal, 40)
                 .transition(.scale)

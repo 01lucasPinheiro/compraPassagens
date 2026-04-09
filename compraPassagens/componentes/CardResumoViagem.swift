@@ -38,11 +38,11 @@ struct CardResumoViagem: View {
                             
                             
                             Text(Padroes.nomeCid1)
-                                .font(.custom("Baloo 2", size: 16).weight(.medium))
+                                .font(Font.custom("Baloo2-Medium", size: 16))
                                 .foregroundColor(Color.azulMedio)
                                 
                             Text(Padroes.abrevAero1)
-                                .font(.custom("Inter", size: 12))
+                                .font(Font.custom("Inter", size: 12))
                                 .foregroundColor(Color.azulEscuro)
                                 .padding(.vertical, 3)
                             
@@ -53,14 +53,14 @@ struct CardResumoViagem: View {
                                 .padding(.vertical, 5)
                             
                             Text(Padroes.horarioCard1)
-                                .font(.custom("Baloo 2", size: 12).weight(.medium))
+                                .font(Font.custom("Baloo2-Medium", size: 16))
                                 .foregroundColor(Color.azulMedio)
+                                .padding(.top,4)
                             
                             Text(Padroes.diaCard1)
-                                .font(.custom("Inter", size: 12))
+                                .font(Font.custom("Inter", size: 12))
                                 .foregroundColor(Color.azulEscuro)
-                                .padding(.top,3)
-                            
+                                
                         }
                         
                         Spacer()
@@ -68,10 +68,10 @@ struct CardResumoViagem: View {
                         // Duração e Linha (Centro)
                         VStack(spacing: 7) {
                             Text("Duração")
-                                .font(.custom("Inter", size: 10))
+                                .font(Font.custom("Inter", size: 10))
                                 .foregroundColor(Color.azulEscuro)
                             Text("14h 55m")
-                                .font(.custom("Inter", size: 14))
+                                .font(Font.custom("Inter", size: 14))
                                 .foregroundColor(Color.azulEscuro)
                             
                         }.padding(.top, 30)
@@ -83,11 +83,11 @@ struct CardResumoViagem: View {
                         VStack(alignment: .trailing, spacing: 4) {
                             
                             Text(Padroes.nomeCid3)
-                                .font(.custom("Baloo 2", size: 16).weight(.medium))
+                                .font(Font.custom("Baloo2-Medium", size: 16))
                                 .foregroundColor(Color.azulMedio)
                             
                             Text(Padroes.abrevAero3)
-                                .font(.custom("Inter", size: 12))
+                                .font(Font.custom("Inter", size: 12))
                                 .foregroundColor(Color.azulEscuro)
                                 .padding(.vertical, 3)
                             
@@ -98,14 +98,15 @@ struct CardResumoViagem: View {
                                 .padding(.vertical, 5)
                             
                             Text(Padroes.horarioCard3)
-                                .font(.custom("Baloo 2", size: 12).weight(.medium))
+                                .font(Font.custom("Baloo2-Medium", size: 16))
                                 .foregroundColor(Color.azulMedio)
+                                .padding(.top,4)
                             
                             
                             Text(Padroes.diaCard3)
-                                .font(.custom("Inter", size: 12))
+                                .font(Font.custom("Inter", size: 12))
                                 .foregroundColor(Color.azulEscuro)
-                                .padding(.top,3)
+                                
                         }
                         
                     }
@@ -121,14 +122,14 @@ struct CardResumoViagem: View {
                     // MARK: - Barra de Preço e Botão (Parte Inferior)
                     HStack {
                         Text("Econômica")
-                            .font(.custom("Baloo 2", size: 12).weight(.medium))
-                            .foregroundColor(Color.azulEscuro)
+                            .font(Font.custom("Baloo2-Medium", size: 14))
+                            .foregroundColor(Color.azulMedio)
                         
                         Spacer()
                         
                         Text("1 Adulto")
-                            .font(.custom("Baloo 2", size: 12).weight(.medium))
-                            .foregroundColor(Color.azulEscuro)
+                            .font(Font.custom("Baloo2-Medium", size: 14))
+                            .foregroundColor(Color.azulMedio)
                         
                     }
                     .padding(.horizontal, 24)

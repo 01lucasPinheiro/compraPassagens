@@ -27,13 +27,16 @@ struct Pesquisa: View {
                     HStack {
                         
                         Text(Padroes.nomeCid1)
-                        // Dica: Aqui você pode colocar um ícone se houver no design
+
                         Image(systemName: "arrow.left.arrow.right")
-                            .frame(maxWidth: .infinity, alignment: .init(horizontal: .center, vertical: .center))
+                            .frame(maxWidth: .infinity, alignment:
+                                    .init(horizontal: .center, vertical: .center))
+                            
+                        
                         Text(Padroes.nomeCid2)
                     }
-                    .font(.custom("Baloo 2", size: 12).weight(.medium))
-                    .foregroundColor(Color.azulEscuro)
+                    .font(Font.custom("Baloo2-Medium", size: 14))
+                    .foregroundStyle(Color.azulEscuro)
                     .padding(.horizontal, 20)
                     .frame(height: 35) // Altura ajustada para melhor área de toque
                     .background(Color.bege)
@@ -41,7 +44,6 @@ struct Pesquisa: View {
                     
                 }}
             
-            // MARK: - Linha 2: Filtros e Opções
             HStack{
                 PadraoFiltro(text: "Econômica", backCor: Color.bege, txtCor: Color.azulEscuro)
                 PadraoFiltro(text: "1 Adulto", backCor: Color.bege, txtCor: Color.azulEscuro)
@@ -51,7 +53,7 @@ struct Pesquisa: View {
                     VStack{
                         
                         Text("19/09")
-                            .font(.custom("Baloo 2", size: 12).weight(.medium))
+                            .font(Font.custom("Baloo2-Medium", size: 12))
                             .foregroundColor(Color.azulEscuro)
                             .padding(.horizontal, 10)
                             .frame(height: 35) // Altura ajustada para melhor área de toque
@@ -60,7 +62,7 @@ struct Pesquisa: View {
                     
                     VStack{
                         Text("Volta")
-                            .font(.custom("Baloo 2", size: 12).weight(.medium))
+                            .font(Font.custom("Baloo2-Medium", size: 12))
                             .foregroundColor(Color.azulEscuro)
                             .padding(.horizontal, 10)
                             .frame(height: 35) // Altura ajustada para melhor área de toque

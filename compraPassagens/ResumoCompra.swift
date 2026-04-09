@@ -10,38 +10,60 @@ import SwiftUI
 
 struct ResumoCompra: View {
     var body: some View {
-        Text("Realizar o pagamento")
-        VStack(spacing: 30){
+        
+        
+        VStack(spacing: 20){
+            Text("Resumo da compra")
+                .font(Font.custom("Baloo2-Medium", size: 20))
+                .foregroundColor(Color.azulMedio)
+            
+            CardResumoCompra()
+               
+        }.padding(20)
+
+        Text("Realize o pagamento")
+            .font(Font.custom("Baloo2-Medium", size: 20))
+            .foregroundColor(Color.azulMedio)
+            .padding(10)
+        
+        VStack(spacing: 10){
+            
             VStack{
                 HStack{
                     Text("Valor total")
+                    
                     Spacer()
+                    
                     Text("BRL 5976,00")
-                }
+                    
+                }.font(Font.custom("Baloo2-Medium", size: 20))
+                    .foregroundColor(Color.azulEscuro)
                 
                 Line()
-                    .stroke(style: StrokeStyle(lineWidth: 0.5, dash: [2]))
+                    .stroke(style: StrokeStyle(lineWidth: 1, dash: [2]))
                     .foregroundColor(Color.azulMedio)
-                    .frame(height: 1)
+                
             }
             VStack{
                 HStack{
                     Text("Copiar Codigo")
+                        .foregroundColor(Color.azulEscuro)
                     Spacer()
                     Image(systemName: "doc.on.doc")
+                        .foregroundColor(Color.azulEscuro)
                 }
-                .padding(.all, 5)
+                .padding(.all, 10)
                 .frame(width: 300)
                 .background(Color.bege)
                 .cornerRadius(10)
                 Text("Qr Code")
                 Image("qrcode")
-                .frame(width: 113, height: 113)
-                .background(Color.white)
+                //.frame(width: 113, height: 113)
+                .background(Color.bege)
             }
         }
         .padding()
-        .background(Color(red: 205/255, green: 214/255, blue: 41/255))
+        .background(Color.verde)
         .cornerRadius(10)
         .padding(.horizontal, 40)
         
