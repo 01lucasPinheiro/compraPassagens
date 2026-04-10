@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InformacoesPagamento: View {
     @State private var estaExpandido: Bool = false
-    @State private var metodoPagamento = "Selecione metodo de pagamento"
+    @State private var metodoPagamento = "Opção de pagamento"
     @State private var mostrarConfirmacao: Bool = false
     
     var body: some View {

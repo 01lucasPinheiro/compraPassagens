@@ -13,43 +13,60 @@ struct TelaLogin: View {
     
     var body: some View {
         ZStack{
-            VStack(spacing: 0){
+            VStack{
                 VStack{
-                    Text("Faça login ou cadastrese")
-                    Text("para continuar")
+                    Text("Faça seu login ou cadastre-se para continuar")
+                        .multilineTextAlignment(.center)
+                        .font(Font.custom("Baloo2-Medium", size: 20))
+                        .foregroundStyle(Color.azulMedio)
+                    
                 }.padding(40)
+
                 
-                VStack(){
+                VStack{
                     HStack{
                         Spacer()
                         Text("Login")
-                            .frame(maxWidth: 99, maxHeight: 32)
-                            .background(Color.blue)
-                            .cornerRadius(10)
+                            .foregroundStyle(Color.verde)
+                            .frame(maxWidth: 120, maxHeight: 32)
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .background(Color.azulEscuro)
+                            .cornerRadius(50)
                         Spacer()
                         NavigationLink(destination: telaCadastro()){
-                            Text("Cadastre-se")
-                                .foregroundStyle(Color.black)
-                                .frame(maxWidth: 99, maxHeight: 32)
-                                .background(Color.blue.opacity(0.6))
-                                .cornerRadius(10)
+                            Text("Cadastro")
+                                .foregroundStyle(Color.azulEscuro)
+                                .frame(maxWidth: 120, maxHeight: 32)
+                                .font(Font.custom("Baloo2-Medium", size: 16))
+                                .background(Color.azulClaro)
+                                .cornerRadius(50)
                         }
                         Spacer()
                     }
                 }
                     VStack{
                         CustomInputField(label: "E-MAIL", placeholder: "Digite seu email", text: $email)
-                        CustomInputField(label: "SENHA", placeholder: "*********", text: $senha)
-                }.padding(20)
+                        
+                        SecureField("Digite sua senha", text: $senha)
+                              .padding(20)
+                                    .background(Color.branco)
+                                    .foregroundColor(Color.azulEscuro)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.azulEscuro))
+//                        CustomInputField(label: "SENHA", placeholder: "*********", text: $senha)
+                        
+                }.padding(30)
                 VStack{
-                Text("Esqueceu a senha")
+                Text("Esqueceu a senha?")
                     .underline()
-                    .foregroundStyle(Color.orange)
+                    .foregroundStyle(Color.laranja)
                         Text("Avançar")
+                        .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(.white) // texto não fique no azul padrão de links
-                            .frame(width: 179, height: 34)
-                            .background(Color.blue)
-                            .cornerRadius(10)
+                            .frame(width: 179, height: 32)
+                            .background(Color.azulMedio)
+                            .cornerRadius(50)
                 }
             Spacer()
                 }

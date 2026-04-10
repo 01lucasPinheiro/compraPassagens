@@ -15,16 +15,20 @@ struct CustomInputField: View {
         VStack {
             HStack {
                 Text(label)
-                    .font(.system(size: 12, weight: .bold))
+                    .font(Font.custom("Baloo2-Medium", size: 16))
+                    .foregroundStyle(Color.azulMedio)
                 Spacer()
             }
             TextField(placeholder, text: $text)
+                .font(Font.custom("Inter-Regular", size: 16))
+                .foregroundStyle(Color.azulEscuro)
         }
-        .padding()
-        .frame(maxWidth: 300, maxHeight: 60)
+        .padding(20)
+        .frame(maxHeight: 90)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.blue, lineWidth: 1)
+                .stroke(Color.azulEscuro, lineWidth: 1)
         )
     }
 }
+

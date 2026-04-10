@@ -18,32 +18,14 @@ struct telaCadastro: View {
         ZStack{
             VStack(spacing: 0){
                 VStack{
-                    Text("Faça login ou cadastrese")
-                    Text("para continuar")
-                }.padding(40)
+                    Text("Cadastre-se para continuar")
+                        .multilineTextAlignment(.center)
+                        .font(Font.custom("Baloo2-Medium", size: 20))
+                        .foregroundStyle(Color.azulMedio)
+                }.padding(20)
                 
-                VStack(){
-                    HStack{
-                        Spacer()
-                        NavigationLink(destination: TelaFiltro()){
-                            Text("Login")
-                                .foregroundStyle(Color.black)
-                                .frame(maxWidth: 99, maxHeight: 32)
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                        }
-                        Spacer()
-                        NavigationLink(destination: telaCadastro()){
-                            Text("Cadastre-se")
-                                .foregroundStyle(Color.black)
-                                .frame(maxWidth: 99, maxHeight: 32)
-                                .background(Color.blue.opacity(0.6))
-                                .cornerRadius(10)
-                        }
-                        Spacer()
-                    }
-                }
-                VStack{
+                
+                VStack(spacing: 20){
                     CustomInputField(label: "NOME", placeholder: "Insira seu nome completo", text: $nomeCompleto)
                     CustomInputField(label: "E-MAIL", placeholder: "seuemail@gmail.com", text: $email)
                     CustomInputField(label: "TELEFONE", placeholder: "00 00000-0000", text: $telefone)
@@ -52,13 +34,14 @@ struct telaCadastro: View {
                     
                     
                     
-                }.padding(20)
+                }.padding(30)
                 VStack{
                     Text("Avançar")
-                        .foregroundColor(.white) // Garante que o texto não fique no azul padrão de links
-                        .frame(width: 179, height: 34)
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                    .font(Font.custom("Baloo2-Medium", size: 16))
+                        .foregroundColor(.white) // texto não fique no azul padrão de links
+                        .frame(width: 179, height: 32)
+                        .background(Color.azulMedio)
+                        .cornerRadius(50)
                 }
             Spacer()
                 }
