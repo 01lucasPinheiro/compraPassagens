@@ -11,31 +11,30 @@ struct ContentView: View {
     var body: some View {
         TabView() {
             // ABA 1
-                TelaCompra()
+            TelaCompra()
                 .tabItem {
-                Image("iconHome") // nome do asset
-                Text(Padroes.homeString)
-                .font(Font.custom("Inter", size: 10))
-                        }
+                    Image("iconHome") // nome do asset
+                    Text(Padroes.homeString)
+                        .font(Font.custom("Inter", size: 10))
+                }
             // ABA 2
-
+            
             Text("Segunda Tela")
                 .tabItem {
-                Image("iconGostei")
-                .background(Color.red.opacity(1))
-                .foregroundColor(Color.red)// nome do asset
+                    Image("iconGostei")
+                        .background(Color.red.opacity(1))
+                        .foregroundColor(Color.red)// nome do asset
                     
-                Text(Padroes.homeString)
-                .font(Font.custom("Inter", size: 10))
-                .foregroundColor(Color.azulClaro)
-                        }
-            
+                    Text(Padroes.homeString)
+                        .font(Font.custom("Inter", size: 10))
+                        .foregroundColor(Color.azulClaro)
+                }
         }
     }
 }
 
 #Preview {
-        ContentView()
-
-    }
+    ContentView()
+    
+}
 

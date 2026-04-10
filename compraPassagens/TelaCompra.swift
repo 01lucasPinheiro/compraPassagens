@@ -12,30 +12,22 @@ struct TelaCompra: View {
         NavigationStack {
             
             ScrollView(.vertical, showsIndicators: true) {
-                
-                ScrollView(.vertical, showsIndicators: false) {
-                    
-                    ZStack {
+                ZStack {
+                    //VsStack principal engloba todo projeto
+                    VStack(spacing: 5) {
                         
-                        // Color.white.ignoresSafeArea()
+                        //Header
                         
-                        VStack(spacing: 10) {
+                        VStack (spacing: -10){
+                            CardLogo()
                             
-                            //Header
-                            VStack {
-                                HStack {
-                                    Text("Para onde vamos voar ?")
-                                        .font(.system(size: 24, weight: .bold))
-                                        .foregroundColor(.blue)
-                                        .padding()
-                                    Spacer()
-                                }
+                            HStack {
+                                Text("Para onde vamos voar ?")
+                                    .font(.system(size: 24, weight: .bold))
+                                    .foregroundColor(.blue)
+                                    .padding()
+                                Spacer()
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.white.opacity(0.9))
-                            
-                            //Campo de Busca
                             VStack {
                                 HStack(spacing: 10) {
                                     
@@ -55,75 +47,104 @@ struct TelaCompra: View {
                                     .stroke(Color.gray, lineWidth: 0.7)
                             )
                             .padding()
-                            
-                            //Roteiro prontos
-                            VStack {
-                                HStack {
-                                    Text("Roteiros prontos")
-                                        .font(.headline)
-                                    Spacer()
-                                }.padding(.horizontal)
-                                
-                                HStack {
-                                    Spacer()
-                                    Image("imagem1")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 150, height: 150)
-                                        .background(Color.red.opacity(0.5))
-                                        .cornerRadius(10)
-                                    
-                                    Spacer()
-                                    
-                                    Image("imagem2")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 150, height: 150)
-                                        .background(Color.gray.opacity(0.3))
-                                        .cornerRadius(10)
-                                    Spacer()
-                                }.padding(.vertical)
-                            }
-                            
-                            //Promocoes carrosel
-                            VStack {
-                                HStack {
-                                    Text("Promoções")
-                                    //.font(.headline)
-                                        .bold()
-                                    Spacer()
-                                }.padding(.horizontal)
-                            }
-                                VStack{
-                                    ScrollView(.horizontal, showsIndicators: false) {
-                                        LazyHStack(spacing: 20) {
-                                            CardPromocional(Imagem: "imgTokio" ,DataIda: "Qui, 23/04", DataVolta: "Qui, 30/04", Preco: "6.000", Destino: "Tóquio")
-                                            
-                                            CardPromocional(Imagem: "imgDisney" ,DataIda: "Dom, 24/05", DataVolta: "Ter, 09/06", Preco: "1.500", Destino: "Disney Orlando")
-                                            
-                                            CardPromocional(Imagem: "imgBali" ,DataIda: "Qui, 02/04", DataVolta: "Qui, 15/04", Preco: "8.800", Destino: "Bali")
-                                            
-                                            CardPromocional(Imagem: "imgGenebra" ,DataIda: "Dom, 25/03", DataVolta: "Dom, 07/07", Preco: "5.200", Destino: "Genebra")
-                                            
-                                            CardPromocional(Imagem: "imgLisboa" ,DataIda: "Sab, 26/05", DataVolta: "Sex, 06/06", Preco: "4.500", Destino: "Lisboa")
-                                            
-                                        }
-                                    }
-                                    .scrollTargetLayout()
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: 350)
-                                }
-                                
-                            
-                            .scrollTargetBehavior(.viewAligned)
-                            .contentMargins(.horizontal, 10, for: .scrollContent)
                         }
+                        .padding()
+                        .background(Color.white.opacity(0.9))
+                        
+                        //Campo de Busca
+                        
+                        
+                        //Roteiro prontos
+                        VStack(spacing: -5){
+                            HStack {
+                                Text("Roteiros prontos")
+                                    .font(Font.custom("Baloo2-Medium", size: 20))
+                                    .foregroundStyle(Color.branco)
+                                    .font(.headline)
+                                Spacer()
+                            }
+                            .padding(.horizontal)
+                            .padding(.top)
+                            
+                            
+                            //HStack {
+                            VStack{
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    LazyHStack(spacing:10) {
+                                        CardRoteiroPronto(imagem: "lagoinha", destino: "Lagoinha")
+                                        CardRoteiroPronto(imagem: "cancun", destino: "Cancun")
+                                        CardRoteiroPronto(imagem: "italia", destino: "Italia")
+                                        CardRoteiroPronto(imagem: "franca", destino: "França")
+                                        
+                                        
+                                        
+                                        //CardRoteiroPronto(imagem: "imagem1")
+                                        
+                                    }
+                                }
+                                .scrollTargetLayout()
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 175)
+                                .padding(10)
+                            }
+                        }
+                        .background(Color.laranja)
+                        
+                        
+                        
+                        
+                        //Promocoes carrosel
+                        VStack {
+                            HStack {
+                                Text("Promoções")
+                                //.font(.headline)
+                                    .bold()
+                                Spacer()
+                            }.padding(.horizontal)
+                        }
+                        VStack{
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 20) {
+                                    CardPromocional(Imagem: "imgTokio" ,DataIda: "Qui, 23/04", DataVolta: "Qui, 30/04", Preco: "6.000", Destino: "Tóquio")
+                                    
+                                    CardPromocional(Imagem: "imgDisney" ,DataIda: "Dom, 24/05", DataVolta: "Ter, 09/06", Preco: "1.500", Destino: "Disney Orlando")
+                                    
+                                    CardPromocional(Imagem: "imgBali" ,DataIda: "Qui, 02/04", DataVolta: "Qui, 15/04", Preco: "8.800", Destino: "Bali")
+                                    
+                                    CardPromocional(Imagem: "imgGenebra" ,DataIda: "Dom, 25/03", DataVolta: "Dom, 07/07", Preco: "5.200", Destino: "Genebra")
+                                    
+                                    CardPromocional(Imagem: "imgLisboa" ,DataIda: "Sab, 26/05", DataVolta: "Sex, 06/06", Preco: "4.500", Destino: "Lisboa")
+                                    
+                                }
+                            }
+                            .scrollTargetLayout()
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 350)
+                        }
+                        
+                        
+                        .scrollTargetBehavior(.viewAligned)
+                        .contentMargins(.horizontal, 10, for: .scrollContent)
+                        
+                        VStack{
+                            Text("Fique por dentro das experiências dos outros Viajantes!")
+                            .font(Font.custom("Baloo2-Medium", size: 12))
+                            .foregroundStyle(Color.azulMedio)
+
+                            cardBlog(imagem: "ushuaia",titulo: "Ushuaia é incrível!", texto: "A cidade de Ushuaia é umas das queridinhas quando se fala em frio...")
+                            cardBlog(imagem: "jericoacoara", titulo: "Jericoacoara ou Maragogi?", texto: "Muitas pessoas não sabem, mas é possível conhecer...")
+                            cardBlog(imagem: "gramado", titulo: "5 razões para ir a Gramado", texto: "Ao subirmos a serra já nos deparamos com a sua rica vegetação...")
+                            
+                        }
+                        .padding(.top,15)
                     }
                 }
             }
         }
     }
 }
+
+
 #Preview {
     TelaCompra()
 }
