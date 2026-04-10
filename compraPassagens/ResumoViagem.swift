@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ResumoViagem: View {
+    @State private var seguro = "Escolha seu seguro"
+    @State private var estaExpandido: Bool = false
+    
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: true) {
@@ -52,48 +55,81 @@ struct ResumoViagem: View {
                             .font(.custom("Inter", size: 12))
                             .foregroundColor(Color.azulMedio)
                     }
-                }
-                
-                Spacer(minLength: 40)
-                VStack (spacing: 20){
-                    Text("Taxas adicionais")
-                        .font(.custom("Baloo 2", size: 16).weight(.medium))
-                        .foregroundColor(Color.azulMedio)
-                }
-                
-                VStack (spacing: 10){
-                    
-                    HStack{
-                        Text("Valor total")
-                         .font(.custom("Baloo 2", size:20).weight(.medium))
-                         .foregroundColor(Color.bege)
+                    VStack{
+                        DisclosureGroup(seguro, isExpanded: $estaExpandido) {
+                            VStack(alignment: .leading) {
+                                Divider()
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        LazyHStack{
+                                            CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
+                                                                                         "Cobertura contra roubo",
+                                                                                         "Guincho ilimitado",
+                                                                                         "Proteção de vidros"])
+                                            
+                                            CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
+                                                                                         "Cobertura contra roubo",
+                                                                                         "Guincho ilimitado",
+                                                                                         "Proteção de vidros"])
+                                            CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
+                                                                                         "Cobertura contra roubo",
+                                                                                         "Guincho ilimitado",
+                                                                                         "Proteção de vidros"])
+                                            
+                                        }
+                                    }
+                            }
+                            .padding()
+                        }
+                        //.padding()
+                        .padding(.all, 10)
+                        .background(Color.bege)
+                        .cornerRadius(10)
                         
-                        Spacer()
-
-                        Text("BRL 5.844,00")
+                    }.padding()
+                    
+                    
+                    Spacer(minLength: 40)
+                    VStack (spacing: 20){
+                        Text("Taxas adicionais")
                             .font(.custom("Baloo 2", size: 16).weight(.medium))
-                            .foregroundColor(Color.bege)
+                            .foregroundColor(Color.azulMedio)
                     }
                     
-                    // Linha divisória (Substitui o Rectangle com stroke)
-                                Divider()
-                        .background(Color.azulClaro)
-                                
-                                // Informação adicional
-                                Text("Incluindo taxas e impostos")
-                                    .font(.custom("Inter", size: 12).weight(.medium))
-                                    .foregroundColor(Color.bege)
+                    VStack (spacing: 10){
+                        
+                        HStack{
+                            Text("Valor total")
+                                .font(.custom("Baloo 2", size:20).weight(.medium))
+                                .foregroundColor(Color.bege)
+                            
+                            Spacer()
+                            
+                            Text("BRL 5.844,00")
+                                .font(.custom("Baloo 2", size: 16).weight(.medium))
+                                .foregroundColor(Color.bege)
+                        }
+                        
+                        // Linha divisória (Substitui o Rectangle com stroke)
+                        Divider()
+                            .background(Color.azulClaro)
+                        
+                        // Informação adicional
+                        Text("Incluindo taxas e impostos")
+                            .font(.custom("Inter", size: 12).weight(.medium))
+                            .foregroundColor(Color.bege)
+                    }
+                    .padding(20)
+                    .frame(width: 350, height: 90)
+                    .cornerRadius(10)
+                    .background(Color.azulMedio)
+                    
+                    
+                    
                 }
-                .padding(20)
-                .frame(width: 350, height: 90)
-                .cornerRadius(10)
-                .background(Color.azulMedio)
-                
-                
-                
             }
         }
-    }}
+    }
+}
 
 #Preview {
     ResumoViagem()
