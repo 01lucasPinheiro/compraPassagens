@@ -12,9 +12,9 @@ struct cardBlog: View {
     let titulo: String
     let texto: String
     var body: some View {
-        HStack(spacing: 0){
+        HStack(spacing: 0.1){
             Image(imagem)
-                .cornerRadius(10)
+            .cornerRadius(5)
             .padding()
             //Spacer()
             VStack(alignment: .leading){
@@ -23,19 +23,14 @@ struct cardBlog: View {
                     .foregroundStyle(Color.azulMedio)
 
                 Text(texto)
-                    .font(Font.custom("Baloo2-Medium", size: 12))
+                    .font(Font.custom("Inter", size: 11))
                     .foregroundStyle(Color.azulEscuro)
 
-
-                .font(.body)
-                .foregroundColor(.gray)
-
-            }.frame(width: 200)
-                .padding(.horizontal, -5)
+            }.frame(width: 210)
+                .padding(.horizontal, 0.5)
         }
-        .frame(width: 322, height: 87)
+        .frame(width: 340)
         .background(Color.azulClaro)
-        //.background(Color.gray)
         .cornerRadius(10)
     }
 }

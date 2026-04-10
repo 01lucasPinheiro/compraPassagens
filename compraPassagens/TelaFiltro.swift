@@ -27,6 +27,12 @@ struct TelaFiltro: View {
 
         VStack(spacing: 16) {
             VStack(spacing: 10) {
+                
+                Text("VIAGEM")
+                    .font(Font.custom("Baloo2-Medium", size: 14))
+                    .foregroundStyle(Color.azulMedio)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
                 TextField("Origem", text: $origem)
                     .foregroundStyle(Color.azulMedio)
 

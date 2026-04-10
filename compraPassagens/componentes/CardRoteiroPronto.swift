@@ -15,12 +15,12 @@ struct CardRoteiroPronto: View {
             Image(imagem)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 151, height: 141)
+                .frame(width: 140, height: 140)
                 .background(Color.red.opacity(0.5))
                 .cornerRadius(10)
             Text(destino)
                 .font(Font.custom("Baloo2-Medium", size: 14))
-                .foregroundStyle(Color.white)
+                .foregroundStyle(Color.branco)
         }
     }
 }

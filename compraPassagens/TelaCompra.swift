@@ -23,19 +23,21 @@ struct TelaCompra: View {
                             
                             HStack {
                                 Text("Para onde vamos voar ?")
-                                    .font(.system(size: 24, weight: .bold))
-                                    .foregroundColor(.blue)
+                                    .font(Font.custom("Baloo2-Medium", size: 20))
+                                    .foregroundColor(Color.azulMedio)
                                     .padding()
                                 Spacer()
                             }
-                            VStack {
+                            VStack { //Campo de Busca
                                 HStack(spacing: 10) {
                                     
                                     TextField("Destino", text: $destino)
+                                        .font(Font.custom("Inter", size: 16))
+                                        .foregroundColor(Color.azulEscuro)
                                     NavigationLink(destination: TelaFiltro()) {
                                         Image(systemName: "magnifyingglass")
                                             .font(.title)
-                                            .foregroundColor(.blue)
+                                            .foregroundColor(Color.azulEscuro)
                                     }
                                     
                                 }
@@ -44,48 +46,42 @@ struct TelaCompra: View {
                             .padding()
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.gray, lineWidth: 0.7)
+                                    .stroke(Color.azulEscuro)
                             )
                             .padding()
                         }
                         .padding()
-                        .background(Color.white.opacity(0.9))
-                        
-                        //Campo de Busca
-                        
                         
                         //Roteiro prontos
-                        VStack(spacing: -5){
+                        VStack(spacing: -20){
                             HStack {
                                 Text("Roteiros prontos")
                                     .font(Font.custom("Baloo2-Medium", size: 20))
                                     .foregroundStyle(Color.branco)
-                                    .font(.headline)
+                                    .padding(.top, 15)
+
                                 Spacer()
                             }
-                            .padding(.horizontal)
+                            .padding(.horizontal, 30)
                             .padding(.top)
                             
                             
                             //HStack {
                             VStack{
                                 ScrollView(.horizontal, showsIndicators: false) {
-                                    LazyHStack(spacing:10) {
+                                    LazyHStack(spacing:15) {
                                         CardRoteiroPronto(imagem: "lagoinha", destino: "Lagoinha")
                                         CardRoteiroPronto(imagem: "cancun", destino: "Cancun")
                                         CardRoteiroPronto(imagem: "italia", destino: "Italia")
                                         CardRoteiroPronto(imagem: "franca", destino: "França")
-                                        
-                                        
-                                        
+                                                                                
                                         //CardRoteiroPronto(imagem: "imagem1")
                                         
-                                    }
+                                    }.padding(30)
                                 }
                                 .scrollTargetLayout()
                                 .frame(maxWidth: .infinity)
-                                .frame(height: 175)
-                                .padding(10)
+
                             }
                         }
                         .background(Color.laranja)
@@ -97,11 +93,13 @@ struct TelaCompra: View {
                         VStack {
                             HStack {
                                 Text("Promoções")
-                                //.font(.headline)
-                                    .bold()
+                                    .font(Font.custom( "Baloo2-Medium", size: 20))
+                                    .foregroundStyle(Color.azulMedio)
+                                    .padding(.top, 20)
                                 Spacer()
-                            }.padding(.horizontal)
+                            }.padding(.horizontal,30)
                         }
+                        
                         VStack{
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 20) {
@@ -115,20 +113,18 @@ struct TelaCompra: View {
                                     
                                     CardPromocional(Imagem: "imgLisboa" ,DataIda: "Sab, 26/05", DataVolta: "Sex, 06/06", Preco: "4.500", Destino: "Lisboa")
                                     
-                                }
+                                }.padding(20)
                             }
                             .scrollTargetLayout()
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 350)
+                            .frame(height: 380)
                         }
-                        
                         
                         .scrollTargetBehavior(.viewAligned)
                         .contentMargins(.horizontal, 10, for: .scrollContent)
                         
                         VStack{
                             Text("Fique por dentro das experiências dos outros Viajantes!")
-                            .font(Font.custom("Baloo2-Medium", size: 12))
+                            .font(Font.custom("Baloo2-Medium", size: 13))
                             .foregroundStyle(Color.azulMedio)
 
                             cardBlog(imagem: "ushuaia",titulo: "Ushuaia é incrível!", texto: "A cidade de Ushuaia é umas das queridinhas quando se fala em frio...")

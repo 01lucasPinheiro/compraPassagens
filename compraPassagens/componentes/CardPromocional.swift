@@ -20,20 +20,13 @@ struct CardPromocional: View {
     var body: some View {
         VStack(spacing: 0) {
             
-            // MARK: - Imagem / Cabeçalho (Parte Superior)
-            // No futuro, substitua o Rectangle() por um Image("foto_toquio").resizable().scaledToFill()
-            //            Rectangle()
-            //                .fill(Color.bege)
-            //                .frame(height: 140)
-            //                .clipped()
-            
-            // MARK: - Informações e Preço (Parte Inferior)
             VStack(spacing: 12) {
                 
                 // Título
                 Text(Destino)
-                    .font(.custom("Baloo 2", size: 16).weight(.bold))
+                    .font(.custom("Baloo2-Medium", size: 16))
                     .foregroundColor(Color.azulMedio)
+                    .padding(.top, 5)
                 
                 Line()
                     .stroke(style: StrokeStyle(lineWidth: 0.5, dash: [1.5]))
@@ -46,10 +39,10 @@ struct CardPromocional: View {
                     // Ida
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Ida")
-                            .font(.custom("Baloo 2", size: 10).weight(.medium))
+                            .font(.custom("Baloo2-Medium", size: 14))
                             .foregroundColor(Color.azulMedio)
                         Text(DataIda)
-                            .font(.custom("Inter", size: 12))
+                            .font(.custom("Inter", size: 10))
                             .foregroundColor(Color.azulEscuro)
                     }
                     //banana
@@ -65,10 +58,10 @@ struct CardPromocional: View {
                     // Volta
                     VStack(alignment: .trailing, spacing: 2) {
                         Text("Volta")
-                            .font(.custom("Baloo 2", size: 10).weight(.medium))
+                            .font(.custom("Baloo2-Medium", size: 14))
                             .foregroundColor(Color.azulMedio)
                         Text(DataVolta)
-                            .font(.custom("Inter", size: 12))
+                            .font(.custom("Inter", size: 10))
                             .foregroundColor(Color.azulEscuro)
                     }
                 }
@@ -80,22 +73,21 @@ struct CardPromocional: View {
                     // Preço
                     VStack(spacing: 2) {
                         Text("Ida e volta a partir de")
-                            .font(.custom("Inter", size: 10))
+                            .font(.custom("Inter", size: 12))
                             .foregroundColor(Color.azulMedio)
                         
                         Text("BRL \(Preco)")
-                            .font(.custom("Baloo 2", size: 16).weight(.medium))
+                            .font(.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(Color.azulMedio)
                     }
                 }
                 .padding(16)
                 // A altura restante do card
                 .frame(height: 187)
-                .background(Color.white)
             }
             // Tamanho total do card
-            .frame(width: 186, height: 327)
-            .background(Color.white)
+            .frame(width: 186, height: 340)
+            .background(Color.branco)
             .cornerRadius(10)
             // Opcional: Adiciona uma sombra sutil para destacar o card do fundo
             .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
