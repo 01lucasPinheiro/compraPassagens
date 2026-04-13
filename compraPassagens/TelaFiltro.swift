@@ -8,15 +8,31 @@
 import SwiftUI
 
 struct TelaFiltro: View {
-    @State private var origem = ""
-    @State private var destino = ""
-    @State private var dataViagem: Date = Date()
-    @State private var qtdAdultos = 1
-    @State private var qtdCriancas = 0
+    @State  var origem = ""
+    @State  var dataViagem: Date = Date()
+    @State  var qtdAdultos = 1
+    @State  var qtdCriancas = 0
     
-    @State private var estaExpandido: Bool = false
-    @State private var classes = "Classe"
-    @State private var mostrarConfirmacao: Bool = false
+    @State var destino: String
+    
+    @State  var estaExpandido: Bool = false
+    @State  var classes = "Classe"
+    @State  var mostrarConfirmacao: Bool = false
+    
+    let origens: [String] = ["Guarulhos", "Congonhas", "Galeão", "Confins"]
+    
+    // Lógica de validação: remove espaços e ignora maiúsculas/minúsculas
+    var destinoEhValido: Bool {
+        origens.contains { $0.lowercased() == origem.trimmingCharacters(in: .whitespaces).lowercased() }
+    }
+    var sugestoes: [String] {
+        if origens.isEmpty || destinoEhValido {
+            return []
+        } else {
+            return origens.filter { $0.lowercased().contains(origem.lowercased()) }
+        }
+    }
+
     
     var body: some View {
         VStack{
@@ -32,12 +48,38 @@ struct TelaFiltro: View {
                     .font(Font.custom("Baloo2-Medium", size: 14))
                     .foregroundStyle(Color.azulMedio)
                     .frame(maxWidth: .infinity, alignment: .leading)
+              
+                VStack{
                 
-                TextField("Origem", text: $origem)
-                    .foregroundStyle(Color.azulMedio)
+                    TextField("Origem", text: $origem)
+                        .foregroundStyle(Color.azulMedio)
+                        //.disabled(!destinoEhValido)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        ForEach(sugestoes, id: \.self) { item in
+                            Button(action: {
+                                origens = item // Preenche o campo automaticamente
+                            }) {
+                                HStack {
+                                    Image(systemName: "airplane")
+                                    Text(item)
+                                    Spacer()
+                                }
+                                .padding()
+                                .foregroundColor(.azulEscuro)
+                            }
+                            Divider()
+                        }
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(radius: 4)
+                    // Ajuste para a lista flutuar levemente
+                    .padding(.top, 5)
+                }
+}
 
                 Divider()
-                TextField("Destino", text: $destino)
+                TextField("\(destino)", text: $destino)
                 
             }
             .padding()
@@ -156,6 +198,7 @@ struct TelaFiltro: View {
         }
     }
 }
+
 #Preview {
-    TelaFiltro()
+    TelaFiltro(destino: "São Paulo")
 }

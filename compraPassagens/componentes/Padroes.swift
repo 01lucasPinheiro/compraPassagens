@@ -15,6 +15,9 @@ struct Padroes {
     static let passagensString = "Passagens"
     static let perfilString = "Perfil"
     
+    let aeroportosValidos = ["Guarulhos", "Congonhas", "Galeão", "Confins"]
+
+    
     // CARDS PASSAGENS
     var nomeCidade = [Padroes.nomeCid1, Padroes.nomeCid2, Padroes.nomeCid3, Padroes.nomeCid4]
     static let nomeCid1 = "São Paulo"

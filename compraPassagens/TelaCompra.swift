@@ -8,6 +8,23 @@ import SwiftUI
 
 struct TelaCompra: View {
     @State private var destino = ""
+    // Lista de aeroportos válidos
+    let aeroportosValidos = ["Guarulhos", "Congonhas", "Galeão", "Confins"]
+    
+    // Lógica de validação: remove espaços e ignora maiúsculas/minúsculas
+    var destinoEhValido: Bool {
+        aeroportosValidos.contains { $0.lowercased() == destino.trimmingCharacters(in: .whitespaces).lowercased() }
+    }
+    var sugestoes: [String] {
+        if destino.isEmpty || destinoEhValido {
+            return []
+        } else {
+            return aeroportosValidos.filter { $0.lowercased().contains(destino.lowercased()) }
+        }
+    }
+    
+    
+    
     var body: some View {
         NavigationStack {
             
@@ -28,29 +45,54 @@ struct TelaCompra: View {
                                     .padding()
                                 Spacer()
                             }
-                            VStack { //Campo de Busca
-                                HStack(spacing: 10) {
-                                    
-                                    TextField("Destino", text: $destino)
-                                        .font(Font.custom("Inter", size: 16))
-                                        .foregroundColor(Color.azulEscuro)
-                                    NavigationLink(destination: TelaFiltro()) {
-                                        Image(systemName: "magnifyingglass")
-                                            .font(.title)
+                            VStack(spacing: 0) {
+                                VStack { // Campo de Busca
+                                    HStack(spacing: 10) {
+                                        TextField("Destino", text: $destino)
+                                            .font(Font.custom("Inter", size: 16))
                                             .foregroundColor(Color.azulEscuro)
+                                        
+                                        NavigationLink(destination: TelaFiltro(destino: destino)) {
+                                            Image(systemName: "magnifyingglass")
+                                                .font(.title)
+                                                .foregroundColor(destinoEhValido ? Color.azulEscuro : .gray.opacity(0.5))
+                                        }
+                                        .disabled(!destinoEhValido)
                                     }
-                                    
                                 }
+                                .padding()
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.azulEscuro)
+                                )
+                                //resolver depois 
                                 
+                                    VStack(alignment: .leading, spacing: 0) {
+                                        ForEach(sugestoes, id: \.self) { item in
+                                            Button(action: {
+                                                destino = item // Preenche o campo automaticamente
+                                            }) {
+                                                HStack {
+                                                    Image(systemName: "airplane")
+                                                    Text(item)
+                                                    Spacer()
+                                                }
+                                                .padding()
+                                                .foregroundColor(.azulEscuro)
+                                            }
+                                            Divider()
+                                        }
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                                    .shadow(radius: 4)
+                                    // Ajuste para a lista flutuar levemente
+                                    .padding(.top, 5)
+                                }
                             }
-                            .padding()
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.azulEscuro)
-                            )
-                            .padding()
+                            .padding() // Padding externo do bloco de busca
                         }
                         .padding()
+                        
                         
                         //Roteiro prontos
                         VStack(spacing: -20){
@@ -59,7 +101,7 @@ struct TelaCompra: View {
                                     .font(Font.custom("Baloo2-Medium", size: 20))
                                     .foregroundStyle(Color.branco)
                                     .padding(.top, 15)
-
+                                
                                 Spacer()
                             }
                             .padding(.horizontal, 30)
@@ -74,14 +116,14 @@ struct TelaCompra: View {
                                         CardRoteiroPronto(imagem: "cancun", destino: "Cancun")
                                         CardRoteiroPronto(imagem: "italia", destino: "Italia")
                                         CardRoteiroPronto(imagem: "franca", destino: "França")
-                                                                                
+                                        
                                         //CardRoteiroPronto(imagem: "imagem1")
                                         
                                     }.padding(30)
                                 }
                                 .scrollTargetLayout()
                                 .frame(maxWidth: .infinity)
-
+                                
                             }
                         }
                         .background(Color.laranja)
@@ -124,9 +166,9 @@ struct TelaCompra: View {
                         
                         VStack{
                             Text("Fique por dentro das experiências dos outros Viajantes!")
-                            .font(Font.custom("Baloo2-Medium", size: 13))
-                            .foregroundStyle(Color.azulMedio)
-
+                                .font(Font.custom("Baloo2-Medium", size: 13))
+                                .foregroundStyle(Color.azulMedio)
+                            
                             cardBlog(imagem: "ushuaia",titulo: "Ushuaia é incrível!", texto: "A cidade de Ushuaia é umas das queridinhas quando se fala em frio...")
                             cardBlog(imagem: "jericoacoara", titulo: "Jericoacoara ou Maragogi?", texto: "Muitas pessoas não sabem, mas é possível conhecer...")
                             cardBlog(imagem: "gramado", titulo: "5 razões para ir a Gramado", texto: "Ao subirmos a serra já nos deparamos com a sua rica vegetação...")
