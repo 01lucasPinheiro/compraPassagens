@@ -138,13 +138,16 @@ struct InformacoesPagamento: View {
                     Button(action: {
                         withAnimation { mostrarConfirmacao = false }
                     }) {
-                        Text("OK")
-                            .font(Font.custom("Baloo2-SemiBold", size: 16))
-                            .foregroundColor(Color.branco)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 44)
-                            .background(Color.azulMedio)
-                            .cornerRadius(50)
+                        
+                        NavigationLink(destination: InfoPassagem()) {
+                            
+                            Text("OK")
+                                .font(Font.custom("Baloo2-SemiBold", size: 16))
+                                .foregroundColor(Color.branco)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 44)
+                                .background(Color.azulMedio)
+                            .cornerRadius(50)}
                     }
                 }
                 .padding(30)
