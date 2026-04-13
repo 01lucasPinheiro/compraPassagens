@@ -36,12 +36,14 @@ struct telaCadastro: View {
                     
                 }.padding(30)
                 VStack{
-                    Text("Avançar")
-                    .font(Font.custom("Baloo2-Medium", size: 16))
-                        .foregroundColor(.white) // texto não fique no azul padrão de links
-                        .frame(width: 179, height: 32)
-                        .background(Color.azulMedio)
-                        .cornerRadius(50)
+                    
+                    NavigationLink(destination: InformacaoPassageiros()){
+                        Text("Avançar")
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .foregroundColor(.white) // texto não fique no azul padrão de links
+                            .frame(width: 179, height: 32)
+                            .background(Color.azulMedio)
+                        .cornerRadius(50)}
                 }
             Spacer()
                 }

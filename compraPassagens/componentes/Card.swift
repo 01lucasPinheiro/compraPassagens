@@ -22,7 +22,7 @@ struct Card: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: 24)
-                                .foregroundColor(Color.gray)}}.padding(.top,15)
+                            .foregroundColor(Color.gray)}}.padding(.top,15)
                     
                     HStack{ // 2. Linha Tracejada
                         Line()
@@ -30,7 +30,7 @@ struct Card: View {
                             .frame(height: 1)
                             .foregroundColor(Color.azulEscuro)
                             .padding(.vertical, 2)
-                            .padding(.horizontal, 16)}
+                        .padding(.horizontal, 16)}
                 }
                 
                 
@@ -43,13 +43,13 @@ struct Card: View {
                         Text(Padroes.abrevAero1) //Abreviação
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(Color.azulMedio)
-                            
+                        
                         
                         Text(Padroes.nomeCid1) //Cidade
                             .font(Font.custom("Inter", size: 14))
                             .foregroundColor(Color.azulEscuro)
                             .padding(.bottom, 5)
-                                                
+                        
                         Rectangle()
                             .fill(Color.azulMedio)
                             .frame(height: 0.75)
@@ -77,7 +77,7 @@ struct Card: View {
                             .multilineTextAlignment(.center)
                         
                     }.padding(.top, 40)
-                     .frame(height: 70)
+                        .frame(height: 70)
                     
                     Spacer()
                     
@@ -87,13 +87,13 @@ struct Card: View {
                         Text(Padroes.abrevAero2) //Abreviação
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(Color.azulMedio)
-                            
+                        
                         
                         Text(Padroes.nomeCid2) //Cidade
                             .font(Font.custom("Inter", size: 14))
                             .foregroundColor(Color.azulEscuro)
                             .padding(.bottom, 5)
-                                                
+                        
                         Rectangle()
                             .fill(Color.azulMedio)
                             .frame(height: 0.75)
@@ -122,20 +122,14 @@ struct Card: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: ResumoCompra()) {
-                        Button(action: {
-                            // Ação do botão de escolha
-                        }) {
-                            NavigationLink(destination: ResumoCompra()) {
-                                Text("Escolher")
-                                    .font(Font.custom("Baloo2-Medium", size: 12))
-                                    .foregroundColor(Color.azulEscuro)
-                                    .padding(.horizontal, 24)
-                                    .padding(.vertical, 3)
-                                    .background(Color.verde)
-                                    .cornerRadius(50)
-                            }
-                        }
+                    NavigationLink(destination: ResumoViagem()) {
+                        Text("Escolher")
+                            .font(Font.custom("Baloo2-Medium", size: 12))
+                            .foregroundColor(Color.azulEscuro)
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 3)
+                            .background(Color.verde)
+                            .cornerRadius(50)
                     }
                     
                 }
@@ -147,8 +141,8 @@ struct Card: View {
             .frame(maxWidth: 350)
             
         }.background(Color.bege)
-         .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 2)
-         .cornerRadius(10)
+            .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 2)
+            .cornerRadius(10)
     }
     
 }

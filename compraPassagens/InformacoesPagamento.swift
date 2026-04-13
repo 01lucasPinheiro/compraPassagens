@@ -97,13 +97,15 @@ struct InformacoesPagamento: View {
                         mostrarConfirmacao = true
                     }
                 }) {
-                    Text("Realizar Pagamento")
-                        .font(Font.custom("Baloo2-SemiBold", size: 16))
-                        .foregroundColor(Color.branco)
-                        .frame(width: 200, height: 35)
-                        .background(Color.azulMedio)
-                        .cornerRadius(50)
-                        .padding(.top, 20)
+                    
+                    NavigationLink(destination: ResumoCompra()) {
+                        Text("Realizar Pagamento")
+                            .font(Font.custom("Baloo2-SemiBold", size: 16))
+                            .foregroundColor(Color.branco)
+                            .frame(width: 200, height: 35)
+                            .background(Color.azulMedio)
+                            .cornerRadius(50)
+                        .padding(.top, 20)}
                 }
                 
                 Spacer()

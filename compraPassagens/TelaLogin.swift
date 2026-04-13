@@ -61,12 +61,14 @@ struct TelaLogin: View {
                 Text("Esqueceu a senha?")
                     .underline()
                     .foregroundStyle(Color.laranja)
+                    
+                    NavigationLink(destination: InformacaoPassageiros()){
                         Text("Avançar")
-                        .font(Font.custom("Baloo2-Medium", size: 16))
+                            .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(.white) // texto não fique no azul padrão de links
                             .frame(width: 179, height: 32)
                             .background(Color.azulMedio)
-                            .cornerRadius(50)
+                        .cornerRadius(50)}
                 }
             Spacer()
                 }

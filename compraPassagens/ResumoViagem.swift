@@ -59,34 +59,44 @@ struct ResumoViagem: View {
                         DisclosureGroup(seguro, isExpanded: $estaExpandido) {
                             VStack(alignment: .leading) {
                                 Divider()
-                                    ScrollView(.horizontal, showsIndicators: false) {
-                                        LazyHStack{
-                                            CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
-                                                                                         "Cobertura contra roubo",
-                                                                                         "Guincho ilimitado",
-                                                                                         "Proteção de vidros"])
-                                            
-                                            CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
-                                                                                         "Cobertura contra roubo",
-                                                                                         "Guincho ilimitado",
-                                                                                         "Proteção de vidros"])
-                                            CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
-                                                                                         "Cobertura contra roubo",
-                                                                                         "Guincho ilimitado",
-                                                                                         "Proteção de vidros"])
-                                            
-                                        }
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    LazyHStack{
+                                        CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
+                                                                                     "Cobertura contra roubo",
+                                                                                     "Guincho ilimitado",
+                                                                                     "Proteção de vidros"])
+                                        
+                                        CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
+                                                                                     "Cobertura contra roubo",
+                                                                                     "Guincho ilimitado",
+                                                                                     "Proteção de vidros"])
+                                        CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
+                                                                                     "Cobertura contra roubo",
+                                                                                     "Guincho ilimitado",
+                                                                                     "Proteção de vidros"])
+                                        
                                     }
+                                }
                             }
                             .padding()
                         }
                         //.padding()
-                        .padding(.all, 10)
-                        .background(Color.bege)
+                        .padding(20)
+                        .background(Color.azulClaro)
+                        .foregroundStyle(Color.azulEscuro)
+                        .font(Font.custom("Inter", size: 14))
                         .cornerRadius(10)
                         
-                    }.padding()
+                    }.padding(30)
                     
+                    NavigationLink(destination: TelaLogin()){
+                        Text("Continuar compra")
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .frame(maxWidth:150)
+                            .padding(5)
+                            .background(Color.azulMedio)
+                            .foregroundColor(Color.bege)
+                        .cornerRadius(50)}
                     
                     Spacer(minLength: 40)
                     VStack (spacing: 20){

@@ -24,7 +24,6 @@ struct ResumoCompra: View {
         Text("Realize o pagamento")
             .font(Font.custom("Baloo2-Medium", size: 20))
             .foregroundColor(Color.azulMedio)
-            .padding(10)
         
         VStack(spacing: 10){
             
@@ -46,23 +45,28 @@ struct ResumoCompra: View {
             }
             VStack{
                 HStack{
+                    Image("qrcode")
+                    .frame(width: 113, height: 113)
+                }.padding(.all, 10)
+
+            }.frame(width: 140, height: 140)
+             .background(Color.bege)
+             .cornerRadius(10)
+            
+            VStack{
+                HStack{
                     Text("Copiar Codigo")
                         .foregroundColor(Color.azulEscuro)
+                        .font(Font.custom("Inter", size: 16))
                     Spacer()
                     Image(systemName: "doc.on.doc")
                         .foregroundColor(Color.azulEscuro)
-                }
-                .padding(.all, 10)
-                .frame(width: 300)
-                .background(Color.bege)
-                .cornerRadius(10)
-                Text("Qr Code")
-                Image("qrcode")
-                //.frame(width: 113, height: 113)
-                .background(Color.bege)
+                }.padding(15)
+                 .background(Color.bege)
+                 .cornerRadius(10)
             }
         }
-        .padding()
+        .padding(20)
         .background(Color.verde)
         .cornerRadius(10)
         .padding(.horizontal, 40)

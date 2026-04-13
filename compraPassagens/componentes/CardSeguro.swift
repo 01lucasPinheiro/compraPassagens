@@ -40,7 +40,7 @@ struct CardSeguro: View {
             
             Spacer()
             Text("Escolher")
-                .font(Font.custom("Baloo2-Medium", size: 12))
+                .font(Font.custom("Baloo2-Medium", size: 16))
                 .frame(maxWidth:150)
                 .padding(5)
                 .background(Color.azulMedio)
@@ -49,7 +49,7 @@ struct CardSeguro: View {
         }
         .padding(20)
         .frame(width: 197, height: 297)
-        .background(Color.gray.opacity(0.2)) // Exemplo com opacidade
+        .background(Color.branco.opacity(0.5)) // Exemplo com opacidade
         .cornerRadius(10)
     }
 }

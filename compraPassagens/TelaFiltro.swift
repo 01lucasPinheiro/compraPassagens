@@ -73,8 +73,8 @@ struct TelaFiltro: View {
                         DisclosureGroup(classes, isExpanded: $estaExpandido) {
                             VStack(alignment: .leading) {
                                 Divider()
-                                Button("Economica") {
-                                    classes = "Economica"
+                                Button("Econômica") {
+                                    classes = "Econômica"
                                     estaExpandido = false
                                 }
                                 Divider()
@@ -92,7 +92,7 @@ struct TelaFiltro: View {
                         }
                         .padding()
                         .foregroundColor(Color.azulMedio)
-                        .background(Color.white.opacity(0.5))
+                        .background(Color.branco)
                         .cornerRadius(10)
                     
                     }.foregroundStyle(Color.azulMedio)
@@ -132,7 +132,7 @@ struct TelaFiltro: View {
                     }
                 }
                 
-                .background(Color(.white))
+                .background(Color.branco)
                 .cornerRadius(10)
                 .foregroundColor(Color.azulMedio)
                 
@@ -145,8 +145,8 @@ struct TelaFiltro: View {
         }.padding(20)
         NavigationLink(destination: Pesquisa()) {
             Text("Encontrar melhor preço")
-                .font(Font.custom("Baloo2-Medium", size: 20))
-                .frame(maxWidth:250)
+                .font(Font.custom("Baloo2-Medium", size: 16))
+                .frame(maxWidth:200)
                 .padding(10)
                 .background(Color.azulMedio)
                 .foregroundColor(Color.bege)
