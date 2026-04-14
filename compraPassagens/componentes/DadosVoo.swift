@@ -9,8 +9,9 @@ import SwiftUI
 import Observation
 
 @Observable
-
-class DadosVoo{
+class UserSession{
+    var destino: String = "teste"
+    var origem: String = ""
     
     var voos: [String: (horario: String, preco: Double, destino: String)] = [
         "GRU": ("14:30", 1250.99, "Tókio"),

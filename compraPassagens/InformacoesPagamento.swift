@@ -12,6 +12,19 @@ struct InformacoesPagamento: View {
     @State private var metodoPagamento = "Opção de pagamento"
     @State private var mostrarConfirmacao: Bool = false
     
+    @State var origem: String
+    @State var destino: String
+    @State var classe: String
+    @State var qtdAdultos: Int
+    @State var dataIda: String
+    @State var siglaIda: String
+    @State var siglaVolta: String
+    @State var nomePassageiro: String
+    //Card fixo
+    @State var precoFixo = "1570,99"
+    @State var horarioIdaFixo = "17:30"
+    @State var horarioVoltaFixo = "12:17"
+    
     var body: some View {
         ZStack() {
             
@@ -98,7 +111,7 @@ struct InformacoesPagamento: View {
                     }
                 }) {
                     
-                    NavigationLink(destination: ResumoCompra()) {
+                    NavigationLink(destination: ResumoCompra(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: nomePassageiro)) {
                         Text("Realizar Pagamento")
                             .font(Font.custom("Baloo2-SemiBold", size: 16))
                             .foregroundColor(Color.branco)
@@ -110,59 +123,13 @@ struct InformacoesPagamento: View {
                 
                 Spacer()
             }
-            .blur(radius: mostrarConfirmacao ? 5 : 0)
             
-            if mostrarConfirmacao {
-                // Fundo Escuro
-                Color.black.opacity(0.4)
-                    .ignoresSafeArea()
-                    .onTapGesture {
-                        withAnimation { mostrarConfirmacao = false }
-                    }
-
-                VStack(spacing: 30) {
-                    Image(systemName: "checkmark.circle.fill")
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                        .foregroundColor(Color.verde)
-                    
-                    Text("Pagamento Confirmado!")
-                        .font(Font.custom("Baloo2-SemiBold", size: 20))
-                        .foregroundColor(Color.azulMedio)
-                    
-                    Text("Sua reserva foi processada com sucesso.")
-                        .font(Font.custom("Inter", size: 16))
-                        .foregroundColor(Color.azulEscuro)
-                        .multilineTextAlignment(.center)
-
-                    Button(action: {
-                        withAnimation { mostrarConfirmacao = false }
-                    }) {
-                        
-                        NavigationLink(destination: InfoPassagem()) {
-                            
-                            Text("OK")
-                                .font(Font.custom("Baloo2-SemiBold", size: 16))
-                                .foregroundColor(Color.branco)
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 44)
-                                .background(Color.azulMedio)
-                            .cornerRadius(50)}
-                    }
-                }
-                .padding(30)
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(radius: 20)
-                .padding(.horizontal, 40)
-                .transition(.scale)
-            }
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        InformacoesPagamento()
+        InformacoesPagamento(origem: "", destino: "", classe: "", qtdAdultos: 2, dataIda: "", siglaIda: "", siglaVolta: "", nomePassageiro: "")
     }
 }

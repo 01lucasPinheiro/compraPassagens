@@ -7,6 +7,20 @@
 import SwiftUI
 
 struct CardResumoCompra: View {
+    
+    @State var origem: String
+    @State var destino: String
+    @State var classe: String
+    @State var qtdAdultos: Int
+    @State var dataIda: String
+    @State var siglaIda: String
+    @State var siglaVolta: String
+    @State var nomePassageiro: String
+    //Card fixo
+    @State var precoFixo = "1570,99"
+    @State var horarioIdaFixo = "17:30"
+    @State var horarioVoltaFixo = "12:17"
+    
     var body: some View {
 
         ZStack{
@@ -22,7 +36,7 @@ struct CardResumoCompra: View {
                             .font(Font.custom("Inter", size: 12))
                             .foregroundColor(Color.azulEscuro)
                         
-                        Text("Tais Emily Lucas")
+                        Text(nomePassageiro)
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(Color.azulMedio)
                             .padding(.vertical, 3)
@@ -58,7 +72,7 @@ struct CardResumoCompra: View {
                             .font(Font.custom("Inter", size: 12))
                             .foregroundColor(Color.azulEscuro)
                         
-                        Text(Padroes.nomeCid1)
+                        Text(origem)
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(Color.azulMedio)
                             .padding(.vertical, 3)
@@ -72,7 +86,7 @@ struct CardResumoCompra: View {
                             .font(Font.custom("Inter", size: 12))
                             .foregroundColor(Color.azulEscuro)
                         
-                        Text(Padroes.nomeCid2)
+                        Text(destino)
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(Color.azulMedio)
                             .padding(.vertical, 3)
@@ -90,7 +104,7 @@ struct CardResumoCompra: View {
                             .font(Font.custom("Inter", size: 12))
                             .foregroundColor(Color.azulEscuro)
                         
-                        Text("Sáb. 19 set.")
+                        Text(dataIda)
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(Color.azulMedio)
                             .padding(.vertical, 3)
@@ -136,7 +150,7 @@ struct CardResumoCompra: View {
                             .font(Font.custom("Inter", size: 12))
                             .foregroundColor(Color.azulEscuro)
                         
-                        Text(Padroes.classeCard1)
+                        Text(classe)
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(Color.azulMedio)
                             .padding(.vertical, 3)
@@ -155,6 +169,6 @@ struct CardResumoCompra: View {
     }
 
 #Preview {
-    CardResumoCompra()
+    CardResumoCompra(origem: "", destino: "", classe: "", qtdAdultos: 1, dataIda: "", siglaIda: "", siglaVolta: "", nomePassageiro: "")
 }
 

@@ -11,6 +11,25 @@ struct TelaLogin: View {
     @State private var email: String = ""
     @State private var senha: String = ""
     
+    @State var origem: String
+    @State var destino: String
+    @State var classe: String
+    @State var qtdAdultos: Int
+    @State var dataIda: String
+    @State var siglaIda: String
+    @State var siglaVolta: String
+    @State var nomePassageiro: String
+    
+    //Card fixo
+    @State var precoFixo = "1570,99"
+    @State var horarioIdaFixo = "17:30"
+    @State var horarioVoltaFixo = "12:17"
+    
+    var formularioValido: Bool {
+
+        !email.trimmingCharacters(in: .whitespaces).isEmpty && senha.count >= 6
+    }
+    
     var body: some View {
         ZStack{
             VStack{
@@ -62,13 +81,17 @@ struct TelaLogin: View {
                     .underline()
                     .foregroundStyle(Color.laranja)
                     
-                    NavigationLink(destination: InformacaoPassageiros()){
+                    NavigationLink(destination: InformacaoPassageiros(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: nomePassageiro)) {
                         Text("Avançar")
                             .font(Font.custom("Baloo2-Medium", size: 16))
-                            .foregroundColor(.white) // texto não fique no azul padrão de links
+                            .foregroundColor(.white)
                             .frame(width: 179, height: 32)
-                            .background(Color.azulMedio)
-                        .cornerRadius(50)}
+                            // Muda a cor para cinza se estiver inválido
+                            .background(formularioValido ? Color.azulMedio : Color.gray)
+                            .cornerRadius(50)
+                    }
+
+                    .disabled(!formularioValido)
                 }
             Spacer()
                 }
@@ -79,5 +102,5 @@ struct TelaLogin: View {
 
 
 #Preview {
-    TelaLogin()
+    TelaLogin(origem: "", destino: "", classe: "", qtdAdultos: 1, dataIda: "", siglaIda: "", siglaVolta: "", nomePassageiro: "")
 }

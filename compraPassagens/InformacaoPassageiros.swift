@@ -8,6 +8,19 @@
 import SwiftUI
 
 struct InformacaoPassageiros: View {
+    @State var origem: String
+    @State var destino: String
+    @State var classe: String
+    @State var qtdAdultos: Int
+    @State var dataIda: String
+    @State var siglaIda: String
+    @State var siglaVolta: String
+    @State var nomePassageiro: String
+    //Card fixo
+    @State var precoFixo = "1570,99"
+    @State var horarioIdaFixo = "17:30"
+    @State var horarioVoltaFixo = "12:17"
+    
     var body: some View {
         VStack{
             Text("Informações Passageiros")
@@ -24,7 +37,7 @@ struct InformacaoPassageiros: View {
                         
                         Spacer()
                     }.padding(-2)
-                    TextField("Passageiro", text: .constant(""))
+                    TextField("Passageiro", text: $nomePassageiro)
                         .padding(.all, 10)
                         .frame(width: 270)
                         .background(Color.white.opacity(0.7))
@@ -84,7 +97,7 @@ struct InformacaoPassageiros: View {
             .padding(.horizontal, 50)
             
                         
-            NavigationLink(destination: InformacoesPagamento()) {
+            NavigationLink(destination: InformacoesPagamento(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: nomePassageiro)) {
                 VStack{
                     Text("Avançar")
                         .font(Font.custom("Baloo2-Medium", size: 16))
@@ -102,5 +115,5 @@ struct InformacaoPassageiros: View {
 }
 
 #Preview {
-    InformacaoPassageiros()
+    InformacaoPassageiros(origem: "", destino: "", classe: "", qtdAdultos: 2, dataIda: "", siglaIda: "", siglaVolta: "", nomePassageiro: "")
 }

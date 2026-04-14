@@ -11,6 +11,19 @@ struct ResumoViagem: View {
     @State private var seguro = "Escolha seu seguro"
     @State private var estaExpandido: Bool = false
     
+    @State var origem: String
+    @State var destino: String
+    @State var classe: String
+    @State var qtdAdultos: Int
+    @State var dataIda: String
+    @State var siglaIda: String
+    @State var siglaVolta: String
+    
+    //Card fixo
+    @State var precoFixo = "1570,99"
+    @State var horarioIdaFixo = "17:30"
+    @State var horarioVoltaFixo = "12:17"
+    
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: true) {
@@ -26,35 +39,14 @@ struct ResumoViagem: View {
                             .foregroundColor(Color.azulMedio)
                     }
                     
-                    CardResumoViagem()
+                    CardResumoViagem(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta)
                     
-                    VStack {
-                        HStack{
-                            
-                            Line()
-                                .stroke(style: StrokeStyle(lineWidth: 0.7))
-                                .foregroundColor(Color.azulMedio)
-                                .frame(width: 50,height: 5)
-                            
-                            
-                            Text("Espera de 1h em Doha (Troca de Avião)")
-                                .font(.custom("Baloo 2", size: 12).weight(.medium))
-                                .foregroundColor(Color.azulMedio)
-                            
-                            Line()
-                                .stroke(style: StrokeStyle(lineWidth: 0.7))
-                                .foregroundColor(Color.azulMedio)
-                                .frame(width: 50,height: 5)
-                            
-                        }}
+//                    VStack {
+//                        Text("Horários em hora local de cada cidade")
+//                            .font(.custom("Inter", size: 12))
+//                            .foregroundColor(Color.azulMedio)
+//                    }
                     
-                    CardResumoViagem()
-                    
-                    VStack {
-                        Text("Horários em hora local de cada cidade")
-                            .font(.custom("Inter", size: 12))
-                            .foregroundColor(Color.azulMedio)
-                    }
                     VStack{
                         DisclosureGroup(seguro, isExpanded: $estaExpandido) {
                             VStack(alignment: .leading) {
@@ -89,7 +81,41 @@ struct ResumoViagem: View {
                         
                     }.padding(30)
                     
-                    NavigationLink(destination: TelaLogin()){
+                    VStack{
+                        DisclosureGroup(seguro, isExpanded: $estaExpandido) {
+                            VStack(alignment: .leading) {
+                                Divider()
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    LazyHStack{
+                                        CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
+                                                                                     "Cobertura contra roubo",
+                                                                                     "Guincho ilimitado",
+                                                                                     "Proteção de vidros"])
+                                        
+                                        CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
+                                                                                     "Cobertura contra roubo",
+                                                                                     "Guincho ilimitado",
+                                                                                     "Proteção de vidros"])
+                                        CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
+                                                                                     "Cobertura contra roubo",
+                                                                                     "Guincho ilimitado",
+                                                                                     "Proteção de vidros"])
+                                        
+                                    }
+                                }
+                            }
+                            .padding()
+                        }
+                        //.padding()
+                        .padding(20)
+                        .background(Color.azulClaro)
+                        .foregroundStyle(Color.azulEscuro)
+                        .font(Font.custom("Inter", size: 14))
+                        .cornerRadius(10)
+                        
+                    }.padding(30)
+                    
+                    NavigationLink(destination: TelaLogin(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: "" )){
                         Text("Continuar compra")
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .frame(maxWidth:150)
@@ -114,7 +140,7 @@ struct ResumoViagem: View {
                             
                             Spacer()
                             
-                            Text("BRL 5.844,00")
+                            Text("BRL \(precoFixo)")
                                 .font(.custom("Baloo 2", size: 16).weight(.medium))
                                 .foregroundColor(Color.bege)
                         }
@@ -142,5 +168,5 @@ struct ResumoViagem: View {
 }
 
 #Preview {
-    ResumoViagem()
+    ResumoViagem(origem: "", destino: "", classe: "", qtdAdultos: 2, dataIda: "", siglaIda: "", siglaVolta: "")
 }

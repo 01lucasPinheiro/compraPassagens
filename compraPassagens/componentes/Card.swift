@@ -9,6 +9,24 @@ import SwiftUI
 
 struct Card: View {
     
+    let siglaIda : String
+    let sigleVolta : String
+    
+    let origem : String
+    let destino : String
+    
+    let dataIda : String
+    let dataVolta : String
+    
+    let horarioIda : String
+    let horarioVolta : String
+    
+    let duracao : String
+    let preco : String
+    let classe: String
+    let qtdAdultos: Int
+    
+    
     var body: some View {
         
         
@@ -40,12 +58,12 @@ struct Card: View {
                     // Origem (Esquerda)
                     VStack(alignment: .leading, spacing: 2) {
                         
-                        Text(Padroes.abrevAero1) //Abreviação
+                        Text(siglaIda) //Abreviação
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(Color.azulMedio)
                         
                         
-                        Text(Padroes.nomeCid1) //Cidade
+                        Text(origem) //Cidade
                             .font(Font.custom("Inter", size: 14))
                             .foregroundColor(Color.azulEscuro)
                             .padding(.bottom, 5)
@@ -56,12 +74,12 @@ struct Card: View {
                             .frame(maxWidth: 120)
                             .padding(.vertical, 5)
                         
-                        Text(Padroes.horarioCard1) //Horario
+                        Text(horarioIda) //Horario
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(Color.azulMedio)
                             .padding(.top, 5)
                         
-                        Text(Padroes.diaCard1) //Dia
+                        Text("Ida: \(dataIda)") //Dia
                             .font(Font.custom("Inter", size: 14))
                             .foregroundColor(Color.azulEscuro)
                         
@@ -71,6 +89,7 @@ struct Card: View {
                     
                     // Duração
                     VStack(spacing: 10) {
+                        //Text("Duração\n\(Float(horarioVolta-horarioIda))h")
                         Text("Duração\n26h")
                             .font(Font.custom("Inter", size: 12))
                             .foregroundColor(Color.azulEscuro)
@@ -84,12 +103,12 @@ struct Card: View {
                     // Destino (Direita)
                     VStack(alignment: .trailing, spacing: 2) {
                         
-                        Text(Padroes.abrevAero2) //Abreviação
+                        Text(sigleVolta) //Abreviação
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(Color.azulMedio)
                         
                         
-                        Text(Padroes.nomeCid2) //Cidade
+                        Text(destino) //Cidade
                             .font(Font.custom("Inter", size: 14))
                             .foregroundColor(Color.azulEscuro)
                             .padding(.bottom, 5)
@@ -100,13 +119,13 @@ struct Card: View {
                             .frame(maxWidth: 120)
                             .padding(.vertical, 5)
                         
-                        Text(Padroes.horarioCard2) //Horario
+                        Text(horarioVolta) //Horario
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(Color.azulMedio)
                             .padding(.top, 5)
                         
                         
-                        Text(Padroes.diaCard2) //Dia
+                        Text(dataVolta) //Dia
                             .font(Font.custom("Inter", size: 14))
                             .foregroundColor(Color.azulEscuro)
                     }
@@ -116,13 +135,13 @@ struct Card: View {
                 
                 // Botão
                 HStack {
-                    Text(Padroes.precoCard1)
+                    Text("BRL \(preco)")
                         .font(Font.custom("Baloo2-Medium", size: 12))
                         .foregroundColor(Color.bege)
                     
                     Spacer()
                     
-                    NavigationLink(destination: ResumoViagem()) {
+                    NavigationLink(destination: ResumoViagem(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: sigleVolta)) {
                         Text("Escolher")
                             .font(Font.custom("Baloo2-Medium", size: 12))
                             .foregroundColor(Color.azulEscuro)
@@ -148,5 +167,5 @@ struct Card: View {
 }
 
 #Preview {
-    Card()
+    Card(siglaIda: "", sigleVolta: "", origem: "", destino: "", dataIda: "", dataVolta: "", horarioIda: "", horarioVolta: "", duracao: "", preco: "", classe: "", qtdAdultos: 1)
 }

@@ -8,6 +8,16 @@
 import SwiftUI
 
 struct InfoPassagem: View {
+    @State var origem: String
+    @State var destino: String
+    @State var classe: String
+    @State var qtdAdultos: Int
+    @State var dataIda: String
+    @State var siglaIda: String
+    @State var siglaVolta: String
+    @State var nomePassageiro: String
+        @State var precoFixo = "1570,99"
+    
     var body: some View {
         // ZStack apenas para o fundo azul ocupar a tela toda
         ZStack {
@@ -37,13 +47,13 @@ struct InfoPassagem: View {
                     // CARD 2: Origem e Destino (Abreviados)
                     HStack {
                         VStack(alignment: .leading) {
-                            Text(Padroes.abrevAero1).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
-                            Text(Padroes.nomeCid1).font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
+                            Text(siglaIda).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
+                            Text(origem).font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
                         }
                         Rectangle().fill(Color.azulMedio).frame(height: 1).padding(.horizontal)
                         VStack(alignment: .trailing) {
-                            Text(Padroes.abrevAero2).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
-                            Text(Padroes.nomeCid2).font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
+                            Text(siglaVolta).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
+                            Text(destino).font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
                         }
                     }
                     .padding()
@@ -56,12 +66,12 @@ struct InfoPassagem: View {
                         HStack(alignment: .top) {
                             VStack(alignment: .leading) {
                                 Text("Passageiro").font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
-                                Text("Tais Emily Lucas").font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
+                                Text(nomePassageiro).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
                             }
                             Spacer()
                             VStack(alignment: .trailing) {
                                 Text("Preço").font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
-                                Text("BRL 28558.55").font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
+                                Text("BRL \(precoFixo)").font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
                             }
                         }
                         
@@ -69,12 +79,12 @@ struct InfoPassagem: View {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Origem").font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
-                                Text(Padroes.nomeCid1).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
+                                Text(origem).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
                             }
                             Spacer()
                             VStack(alignment: .trailing) {
                                 Text("Destino").font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
-                                Text(Padroes.nomeCid2).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
+                                Text(destino).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
                             }
                         }
                         
@@ -82,12 +92,12 @@ struct InfoPassagem: View {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Data de ida").font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
-                                Text("Sáb. 19 set.").font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
+                                Text(dataIda).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
                             }
                             Spacer()
                             VStack(alignment: .trailing) {
                                 Text("Núm. de conexões").font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
-                                Text("1 em DOH").font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
+                                Text("Nenhuma").font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
                             }
                         }
                         
@@ -100,7 +110,7 @@ struct InfoPassagem: View {
                             Spacer()
                             VStack(alignment: .trailing) {
                                 Text("Classe").font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
-                                Text("Economica").font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
+                                Text(classe).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
                             }
                         }
                         
@@ -138,5 +148,5 @@ struct InfoPassagem: View {
     }
 }
 #Preview {
-    InfoPassagem()
+    InfoPassagem(origem: "", destino: "", classe: "", qtdAdultos: 2, dataIda: "", siglaIda: "", siglaVolta: "", nomePassageiro: "")
 }

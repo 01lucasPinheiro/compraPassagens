@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct compraPassagensApp: App {
-    @State private var dados = DadosVoo()
+    @State private var session = UserSession()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(dados)
+                .environment(session)
         }
     }
 }

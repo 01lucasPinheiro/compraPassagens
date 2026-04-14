@@ -37,7 +37,7 @@ struct telaCadastro: View {
                 }.padding(30)
                 VStack{
                     
-                    NavigationLink(destination: InformacaoPassageiros()){
+                    NavigationLink(destination: InformacaoPassageiros(origem: "", destino: "", classe: "", qtdAdultos: 2, dataIda: "", siglaIda: "", siglaVolta: "", nomePassageiro: "")){
                         Text("Avançar")
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(.white) // texto não fique no azul padrão de links

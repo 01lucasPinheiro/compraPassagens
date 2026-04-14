@@ -7,10 +7,10 @@
 import SwiftUI
 
 struct TelaCompra: View {
-    @State private var destino = ""
+    @State var destino = ""
+    
     // Lista de aeroportos válidos
     let aeroportosValidos = ["Guarulhos", "Congonhas", "Galeão", "Confins"]
-    
     // Lógica de validação: remove espaços e ignora maiúsculas/minúsculas
     var destinoEhValido: Bool {
         aeroportosValidos.contains { $0.lowercased() == destino.trimmingCharacters(in: .whitespaces).lowercased() }
@@ -22,9 +22,7 @@ struct TelaCompra: View {
             return aeroportosValidos.filter { $0.lowercased().contains(destino.lowercased()) }
         }
     }
-    
-    
-    
+
     var body: some View {
         NavigationStack {
             

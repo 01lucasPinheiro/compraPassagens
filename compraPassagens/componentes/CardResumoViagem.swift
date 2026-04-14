@@ -8,6 +8,20 @@
 import SwiftUI
 
 struct CardResumoViagem: View {
+    
+    @State var origem: String
+    @State var destino: String
+    @State var classe: String
+    @State var qtdAdultos: Int
+    @State var dataIda: String
+    @State var siglaIda: String
+    @State var siglaVolta: String
+    
+    //Card fixo
+    @State var precoFixo = "1570,99"
+    @State var horarioIdaFixo = "17:30"
+    @State var horarioVoltaFixo = "12:17"
+    
     var body: some View {
 
         ZStack{
@@ -37,11 +51,11 @@ struct CardResumoViagem: View {
                         VStack(alignment: .leading, spacing: 4) {
                             
                             
-                            Text(Padroes.nomeCid1)
+                            Text(origem)
                                 .font(Font.custom("Baloo2-Medium", size: 16))
                                 .foregroundColor(Color.azulMedio)
                                 
-                            Text(Padroes.abrevAero1)
+                            Text(siglaIda)
                                 .font(Font.custom("Inter", size: 12))
                                 .foregroundColor(Color.azulEscuro)
                                 .padding(.vertical, 3)
@@ -52,12 +66,12 @@ struct CardResumoViagem: View {
                                 .frame(maxWidth: 120)
                                 .padding(.vertical, 5)
                             
-                            Text(Padroes.horarioCard1)
+                            Text(horarioIdaFixo)
                                 .font(Font.custom("Baloo2-Medium", size: 16))
                                 .foregroundColor(Color.azulMedio)
                                 .padding(.top,4)
                             
-                            Text(Padroes.diaCard1)
+                            Text(dataIda)
                                 .font(Font.custom("Inter", size: 12))
                                 .foregroundColor(Color.azulEscuro)
                                 
@@ -82,11 +96,11 @@ struct CardResumoViagem: View {
                         // Destino (Direita)
                         VStack(alignment: .trailing, spacing: 4) {
                             
-                            Text(Padroes.nomeCid3)
+                            Text(destino)
                                 .font(Font.custom("Baloo2-Medium", size: 16))
                                 .foregroundColor(Color.azulMedio)
                             
-                            Text(Padroes.abrevAero3)
+                            Text(siglaVolta)
                                 .font(Font.custom("Inter", size: 12))
                                 .foregroundColor(Color.azulEscuro)
                                 .padding(.vertical, 3)
@@ -97,7 +111,7 @@ struct CardResumoViagem: View {
                                 .frame(maxWidth: 120)
                                 .padding(.vertical, 5)
                             
-                            Text(Padroes.horarioCard3)
+                            Text(horarioVoltaFixo)
                                 .font(Font.custom("Baloo2-Medium", size: 16))
                                 .foregroundColor(Color.azulMedio)
                                 .padding(.top,4)
@@ -121,13 +135,13 @@ struct CardResumoViagem: View {
                     
                     // MARK: - Barra de Preço e Botão (Parte Inferior)
                     HStack {
-                        Text("Econômica")
+                        Text(classe)
                             .font(Font.custom("Baloo2-Medium", size: 14))
                             .foregroundColor(Color.azulMedio)
                         
                         Spacer()
                         
-                        Text("1 Adulto")
+                        Text("\(qtdAdultos) Adultos")
                             .font(Font.custom("Baloo2-Medium", size: 14))
                             .foregroundColor(Color.azulMedio)
                         
@@ -147,5 +161,5 @@ struct CardResumoViagem: View {
 
 
 #Preview {
-    CardResumoViagem()
+    CardResumoViagem(origem: "", destino: "", classe: "", qtdAdultos: 1, dataIda: "", siglaIda: "", siglaVolta: "")
 }
