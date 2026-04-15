@@ -21,6 +21,8 @@ struct TelaFiltro: View {
             case "Congonhas": return "CGH"
             case "Galeão":    return "GIG"
             case "Confins":   return "CNF"
+            case "Brasília":  return "BRS"
+            case "Salvador":  return "SSA"
             default:          return "S/I" // Sem identificação
             }
         }
@@ -37,7 +39,7 @@ struct TelaFiltro: View {
     @State var classes = "Classe"
     @State var mostrarConfirmacao: Bool = false
     
-    let origens: [String] = ["Guarulhos", "Congonhas", "Galeão", "Confins", "Paraguaia"]
+    let origens: [String] = ["Guarulhos", "Congonhas", "Galeão", "Confins","Brasília","Salvador"]
     
     var destinoEhValido: Bool {
         origens.contains { $0.lowercased() == origem.trimmingCharacters(in: .whitespaces).lowercased() }
@@ -55,7 +57,6 @@ struct TelaFiltro: View {
     var body: some View {
         ScrollView { // Adicionado ScrollView para telas menores
             VStack(spacing: 20) {
-                Spacer()
                 Text("Para onde vamos?")
                     .font(Font.custom("Baloo2-Medium", size: 20))
                     .foregroundStyle(Color.azulMedio)

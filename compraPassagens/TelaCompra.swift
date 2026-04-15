@@ -10,7 +10,7 @@ struct TelaCompra: View {
     @State var destino = ""
     
     // Lista de aeroportos válidos
-    let aeroportosValidos = ["Guarulhos", "Congonhas", "Galeão", "Confins"]
+    let aeroportosValidos = ["Guarulhos", "Congonhas", "Galeão", "Confins","Brasília","Salvador"]
     // Lógica de validação: remove espaços e ignora maiúsculas/minúsculas
     var destinoEhValido: Bool {
         aeroportosValidos.contains { $0.lowercased() == destino.trimmingCharacters(in: .whitespaces).lowercased() }
