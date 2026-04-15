@@ -35,10 +35,12 @@ struct InfoPassagem: View {
                     HStack {
                         CardLogo()
                             .frame(width: 59, height: 50)
+                            .padding(.leading,30)
                         Spacer()
                         Text("Apenas IDA")
                             .font(.custom("Inter", size: 16))
                             .foregroundColor(.azulEscuro)
+                            .padding(.trailing)
                     }
                     .padding()
                     .background(Color.branco)
@@ -49,12 +51,12 @@ struct InfoPassagem: View {
                         VStack(alignment: .leading) {
                             Text(siglaIda).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
                             Text(origem).font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
-                        }
+                        }.padding(.leading,30)
                         Rectangle().fill(Color.azulMedio).frame(height: 1).padding(.horizontal)
                         VStack(alignment: .trailing) {
                             Text(siglaVolta).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
                             Text(destino).font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
-                        }
+                        }.padding(.trailing)
                     }
                     .padding()
                     .background(Color.branco)

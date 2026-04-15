@@ -93,12 +93,12 @@ struct Pesquisa: View {
                         .cornerRadius(5)}
                     
                     VStack{
-                        Text("Volta")
+                        Text("--")
                             .font(Font.custom("Baloo2-Medium", size: 12))
                             .foregroundColor(Color.azulEscuro)
                             .padding(.horizontal, 10)
                             .frame(height: 35) // Altura ajustada para melhor área de toque
-                            .background(Color.azulClaro)
+                            .background(Color.bege)
                         .cornerRadius(5)}
                 }
             }

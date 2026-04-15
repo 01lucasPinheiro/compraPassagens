@@ -27,7 +27,7 @@ struct ResumoViagem: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: true) {
             VStack(spacing: 20) {
-                
+                Spacer()
                 VStack(alignment: .leading, spacing: 5) {
                     HStack(){
                         Spacer()
@@ -89,7 +89,7 @@ struct ResumoViagem: View {
                 NavigationLink(destination: TelaLogin(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: "")) {
                     Text("Continuar compra")
                         .font(Font.custom("Baloo2-Medium", size: 16))
-                        .frame(maxWidth: 150)
+                        .frame(maxWidth: 160, maxHeight: 20)
                         .padding(.vertical, 10)
                         .background(Color.azulMedio)
                         .foregroundColor(Color.bege)
@@ -103,7 +103,7 @@ struct ResumoViagem: View {
                             .font(.custom("Baloo 2", size: 16).weight(.medium))
                             .foregroundColor(Color.azulMedio)
                         Spacer()
-                    }
+                    }.padding(.top,20)
                     
                     VStack(spacing: 10) {
                         HStack {
@@ -114,7 +114,7 @@ struct ResumoViagem: View {
                             Spacer()
                             
                             Text("BRL \(precoFixo)")
-                                .font(.custom("Baloo 2", size: 16).weight(.medium))
+                                .font(.custom("Baloo 2", size: 18).weight(.medium))
                                 .foregroundColor(Color.bege)
                         }
                         
@@ -127,10 +127,10 @@ struct ResumoViagem: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding(20)
-                    .background(Color.azulMedio)
-                    .cornerRadius(10)
+                    .background(Color.azulEscuro)
+                    //.cornerRadius(10)
                 }
-                .padding(.horizontal, 30)
+                //.padding(.horizontal, 30)
                 
                 Spacer(minLength: 40)
             }

@@ -46,12 +46,12 @@ struct CardSeguro: View {
                         HStack(spacing: 5) {
                             if beneficios.count == 1 {
                                 Text(beneficio)
-                                    .font(Font.custom("Baloo2-Medium", size: 11))
+                                    .font(Font.custom("Inter", size: 12))
                                     .fixedSize(horizontal: false, vertical: true)
                             }else{
                                 Text("•") // Marcador visual
                                 Text(beneficio)
-                                    .font(Font.custom("Baloo2-Medium", size: 11))
+                                    .font(Font.custom("Inter", size: 12))
                                     .fixedSize(horizontal: false, vertical: true)
                             }
                     }

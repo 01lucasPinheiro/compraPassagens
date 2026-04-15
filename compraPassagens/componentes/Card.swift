@@ -125,7 +125,7 @@ struct Card: View {
                             .padding(.top, 5)
                         
                         
-                        Text(dataVolta) //Dia
+                        Text("Chegada: \(dataIda)") //Dia
                             .font(Font.custom("Inter", size: 14))
                             .foregroundColor(Color.azulEscuro)
                     }
