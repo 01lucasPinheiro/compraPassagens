@@ -59,12 +59,14 @@ struct Pesquisa: View {
                     // Campo de Trecho (São Paulo -> Tóquio)
                     HStack {
                         Text(origem)
+                            .padding(.leading)
 
                         Image(systemName: "arrow.left.arrow.right") //em uma proxima atualização, permite a troca das informações
                             .frame(maxWidth: .infinity, alignment:
                                     .init(horizontal: .center, vertical: .center))
                         
                         Text(destino)
+                            .padding(.trailing)
                     }
                     .font(Font.custom("Baloo2-Medium", size: 14))
                     .frame(height: 35)
