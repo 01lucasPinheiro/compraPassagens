@@ -25,15 +25,20 @@ struct TelaLogin: View {
     @State var horarioIdaFixo = "17:30"
     @State var horarioVoltaFixo = "12:17"
     
+    //Possibilita mudança de estado do botão caso preenchido os dados (senha e email)
     var formularioValido: Bool {
-
         !email.trimmingCharacters(in: .whitespaces).isEmpty && senha.count >= 6
     }
     
+    // MARK: Inicio da pagina
     var body: some View {
+        
         ZStack{
+            
             VStack{
                 Spacer()
+                
+                // MARK: Texto
                 VStack{
                     Text("Faça seu login ou cadastre-se para continuar")
                         .multilineTextAlignment(.center)
@@ -42,7 +47,7 @@ struct TelaLogin: View {
                     
                 }.padding(40)
 
-                
+                //MARK: Opção de Login ou Cadastro
                 VStack{
                     HStack{
                         Spacer()
@@ -53,7 +58,7 @@ struct TelaLogin: View {
                             .background(Color.azulEscuro)
                             .cornerRadius(50)
                         Spacer()
-                        NavigationLink(destination: telaCadastro(label: "")){
+                        NavigationLink(destination: telaCadastro(label: "",origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: nomePassageiro)){
                             Text("Cadastro")
                                 .foregroundStyle(Color.azulEscuro)
                                 .frame(maxWidth: 120, maxHeight: 32)
@@ -64,10 +69,12 @@ struct TelaLogin: View {
                         Spacer()
                     }
                 }
+                
+                //MARK: TextFields
                     VStack{
                         CustomInputField(label: "E-MAIL", placeholder: "Digite seu email", text: $email)
                         
-                        VStack (spacing:0){
+                        VStack (spacing:0){ //Por se tratar de senha usamos SecureField
                             HStack {
                                 Text("SENHA")
                                     .font(Font.custom("Baloo2-Medium", size: 16))
@@ -86,11 +93,14 @@ struct TelaLogin: View {
                         )
                         
                 }.padding(30)
-                VStack{
+                
+                //MARK: Link para Esqueci a Senha
+                VStack{ //por ser MVP não fizemos tela, apenas apresentamos a possibilidade
                 Text("Esqueceu a senha?")
                     .underline()
                     .foregroundStyle(Color.laranja)
                     
+                    //MARK: Botão para Avançar
                     NavigationLink(destination: InformacaoPassageiros(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: nomePassageiro)) {
                         Text("Avançar")
                             .font(Font.custom("Baloo2-Medium", size: 16))
@@ -99,11 +109,9 @@ struct TelaLogin: View {
                             // Muda a cor para cinza se estiver inválido
                             .background(formularioValido ? Color.azulMedio : Color.azulClaro)
                             .cornerRadius(50)
-                    }
-
-                    .disabled(!formularioValido)
+                    } .disabled(!formularioValido)
                 }
-            Spacer()
+                Spacer()
                 }
             }
         }

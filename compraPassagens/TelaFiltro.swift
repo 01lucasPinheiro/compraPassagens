@@ -15,6 +15,7 @@ struct TelaFiltro: View {
         return formatter.string(from: dataViagem)
     }
     
+    //Possibilidades de estados
     func buscarSigla(para nome: String) -> String {
             switch nome {
             case "Guarulhos": return "GRU"
@@ -27,7 +28,6 @@ struct TelaFiltro: View {
             }
         }
     
-    // MARK: - Estados
     @State var origem = ""
     @State var dataViagem = Date()
     @State var qtdAdultos = 1
@@ -41,6 +41,7 @@ struct TelaFiltro: View {
     
     let origens: [String] = ["Guarulhos", "Congonhas", "Galeão", "Confins","Brasília","Salvador"]
     
+    //Lógica de sugestão
     var destinoEhValido: Bool {
         origens.contains { $0.lowercased() == origem.trimmingCharacters(in: .whitespaces).lowercased() }
     }
@@ -53,7 +54,7 @@ struct TelaFiltro: View {
         }
     }
 
-    // MARK: - Body
+    // MARK: - Inicio da página
     var body: some View {
         ScrollView { // Adicionado ScrollView para telas menores
             VStack(spacing: 20) {
@@ -62,7 +63,7 @@ struct TelaFiltro: View {
                     .foregroundStyle(Color.azulMedio)
                     .padding(.top)
                 
-                VStack{
+                VStack{ //Opções de viagem
                     HStack{
                         Text("Apenas Ida")
                             .foregroundStyle(Color.verde)
@@ -88,7 +89,8 @@ struct TelaFiltro: View {
                     }
 
                 VStack(spacing: 16) {
-                    // SEÇÃO: ORIGEM E DESTINO
+                    
+                    // MARK: Textfield Origem e Destino
                     VStack(spacing: 10) {
                         Text("VIAGEM")
                             .font(Font.custom("Baloo2-Medium", size: 14))
@@ -104,8 +106,7 @@ struct TelaFiltro: View {
                                 VStack(alignment: .leading, spacing: 0) {
                                     ForEach(sugestoes, id: \.self) { item in
                                         Button(action: {
-                                            origem = item
-                                        }) {
+                                            origem = item}) {
                                             HStack {
                                                 Image(systemName: "airplane")
                                                 Text(item)
@@ -132,10 +133,9 @@ struct TelaFiltro: View {
                     .background(Color.branco)
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.azulEscuro, lineWidth: 1)
-                    )
+                            .stroke(Color.azulEscuro, lineWidth: 1))
 
-                    // SEÇÃO: PERÍODO
+                    // MARK: Periodo
                     VStack(alignment: .leading, spacing: 12) {
                         Text("PERÍODO DE VIAGEM")
                             .font(Font.custom("Baloo2-Medium", size: 14))
@@ -149,10 +149,9 @@ struct TelaFiltro: View {
                     .padding()
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.azulEscuro, lineWidth: 1)
-                    )
+                            .stroke(Color.azulEscuro, lineWidth: 1))
 
-                    // SEÇÃO: CLASSE
+                    // MARK: Classe
                     DisclosureGroup(classes, isExpanded: $estaExpandido) {
                         VStack(alignment: .leading, spacing: 15) {
                             Divider()
@@ -172,7 +171,7 @@ struct TelaFiltro: View {
                             .stroke(Color.azulEscuro, lineWidth: 1)
                     )
 
-                    // SEÇÃO: PESSOAS
+                    // MARK: Pessoas
                     VStack(alignment: .leading, spacing: 10) {
                         Text("PESSOAS")
                             .font(Font.custom("Baloo2-Medium", size: 14))
@@ -186,7 +185,7 @@ struct TelaFiltro: View {
                             }
                         }
                         
-                        Stepper(value: $qtdCriancas, in: 0...9) {
+                        Stepper(value: $qtdCriancas, in: 0...9) { //por ser MVP não usamos esse dado
                             HStack {
                                 Label("Crianças", systemImage: "person.fill")
                                 Spacer()
@@ -203,8 +202,7 @@ struct TelaFiltro: View {
                 }
                 .padding(.horizontal, 20)
 
-                // BOTÃO DE BUSCA
-                // IMPORTANTE: Aqui passamos 'dataFormatada' (String) em vez de 'dataViagem' (Date)
+                //MARK: Botão de Busca
                 NavigationLink(destination: Pesquisa(
                     origem: origem,
                     destino: destino,
@@ -222,7 +220,6 @@ struct TelaFiltro: View {
                         .cornerRadius(50)
                 }
                 .padding(.vertical, 20)
-                
                 Spacer()
             }
         }

@@ -10,7 +10,6 @@ struct CardPromocional: View {
     
     let imagePlaceholderColor = Color(red: 0.50, green: 0.23, blue: 0.27).opacity(0.50)
     let Imagem: String
-    //let Nome: String
     let DataIda: String
     let DataVolta: String
     let Preco: String
@@ -45,7 +44,6 @@ struct CardPromocional: View {
                             .font(.custom("Inter", size: 10))
                             .foregroundColor(Color.azulEscuro)
                     }
-                    //banana
                     Spacer()
                     
                     // Tracinho central
@@ -66,8 +64,6 @@ struct CardPromocional: View {
                     }
                 }
                 
-                //Spacer(minLength: 10)
-
                     Image(Imagem).resizable().scaledToFill()
                     
                     // Preço
@@ -82,14 +78,12 @@ struct CardPromocional: View {
                     }
                 }
                 .padding(16)
-                // A altura restante do card
                 .frame(height: 187)
             }
             // Tamanho total do card
             .frame(width: 186, height: 340)
             .background(Color.branco)
             .cornerRadius(10)
-            // Opcional: Adiciona uma sombra sutil para destacar o card do fundo
             .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
         }
     }

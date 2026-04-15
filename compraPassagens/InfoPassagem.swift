@@ -27,6 +27,10 @@ struct InfoPassagem: View {
             ScrollView {
                 
                 VStack(spacing: 15) {
+                    HStack{
+                        Image("Logo_branco")
+                            
+                    }.padding(.top,-20)
                     
                     Text("Sua Passagem")
                         .font(Font.custom("Baloo2-Medium", size: 20))
@@ -35,7 +39,7 @@ struct InfoPassagem: View {
                     HStack {
                         CardLogo()
                             .frame(width: 59, height: 50)
-                            .padding(.leading,30)
+                            .padding(.leading,20)
                         Spacer()
                         Text("Apenas IDA")
                             .font(.custom("Inter", size: 16))
@@ -51,7 +55,7 @@ struct InfoPassagem: View {
                         VStack(alignment: .leading) {
                             Text(siglaIda).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
                             Text(origem).font(.custom("Inter", size: 12)).foregroundColor(.azulEscuro)
-                        }.padding(.leading,30)
+                        }.padding(.leading,20)
                         Rectangle().fill(Color.azulMedio).frame(height: 1).padding(.horizontal)
                         VStack(alignment: .trailing) {
                             Text(siglaVolta).font(.custom("Baloo2-Medium", size: 16)).foregroundColor(.azulMedio)
@@ -132,7 +136,6 @@ struct InfoPassagem: View {
                     .padding(30)
                     .background(Color.branco)
                     .cornerRadius(10)
-                    ///
                     HStack {
                         Spacer()
                     Image("Codigo_barras")
@@ -142,7 +145,6 @@ struct InfoPassagem: View {
                 .padding()
                 .background(Color.branco)
                 .cornerRadius(10)
-                    
                 }
                 .padding(30) // Margem lateral da lista de cards
             }

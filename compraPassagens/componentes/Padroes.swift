@@ -81,4 +81,3 @@ struct Line: Shape {
     }
 }
 
-//securityfield

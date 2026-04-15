@@ -50,7 +50,7 @@ struct CardResumoCompra: View {
                             .font(Font.custom("Inter", size: 12))
                             .foregroundColor(Color.azulEscuro)
                         
-                        Image(systemName: "airplane.circle.fill") // Substitua pela sua imagem
+                        Image(systemName: "airplane.circle.fill") 
                             .resizable()
                             .scaledToFit()
                             .frame(height: 24)

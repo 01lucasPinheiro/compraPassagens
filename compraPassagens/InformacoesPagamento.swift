@@ -25,10 +25,11 @@ struct InformacoesPagamento: View {
     @State var horarioIdaFixo = "17:30"
     @State var horarioVoltaFixo = "12:17"
     
+    //MARK: Inicio da pagina
     var body: some View {
         ZStack() {
             
-            VStack() {
+            VStack() { //MARK: Etapas Anteriores
             Spacer()
                 VStack(spacing: 16) {
                     Text("Tarifa")
@@ -62,13 +63,13 @@ struct InformacoesPagamento: View {
                     .foregroundColor(Color.azulMedio)
                     .padding(.top, 20)
 
-
+                //MARK: Opções de pagamento
                 VStack(spacing: 10) {
                     Text("Opções de pagamento")
                         .font(Font.custom("Baloo2-Medium", size: 16))
                         .foregroundColor(Color.azulEscuro)
                     
-                    DisclosureGroup(metodoPagamento, isExpanded: $estaExpandido) {
+                    DisclosureGroup(metodoPagamento, isExpanded: $estaExpandido) { //usuario precisa clicar
                         VStack(alignment: .leading) {
                             Divider()
                             Button("Cartão de Crédito", systemImage: "creditcard") {
@@ -93,6 +94,7 @@ struct InformacoesPagamento: View {
                     .background(Color.white.opacity(0.5))
                     .cornerRadius(10)
                     
+                    //MARK: Digitar cupons
                     TextField("Cupons e pontos", text: .constant(""))
                         .font(Font.custom("Inter", size: 16))
                         .foregroundColor(Color.azulMedio)
@@ -105,11 +107,11 @@ struct InformacoesPagamento: View {
                 .cornerRadius(10)
                 .padding(.horizontal, 30)
                 
+                //MARK: Realizar pagamento
                 Button(action: {
                     withAnimation {
                         mostrarConfirmacao = true
-                    }
-                }) {
+                    } }) {
                     
                     NavigationLink(destination: ResumoCompra(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: nomePassageiro)) {
                         Text("Realizar Pagamento")
@@ -120,10 +122,8 @@ struct InformacoesPagamento: View {
                             .cornerRadius(50)
                         .padding(.top, 20)}
                 }
-                
                 Spacer()
             }
-            
         }
     }
 }

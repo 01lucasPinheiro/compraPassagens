@@ -36,7 +36,7 @@ struct Card: View {
                 VStack{
                     VStack{ //LOGO companhia
                         HStack(alignment: .center) {
-                            Image(systemName: "airplane.circle.fill") // Substitua pela sua imagem
+                            Image(systemName: "airplane.circle.fill")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: 24)
@@ -89,7 +89,6 @@ struct Card: View {
                     
                     // Duração
                     VStack(spacing: 10) {
-                        //Text("Duração\n\(Float(horarioVolta-horarioIda))h")
                         Text("Duração\n26h")
                             .font(Font.custom("Inter", size: 12))
                             .foregroundColor(Color.azulEscuro)

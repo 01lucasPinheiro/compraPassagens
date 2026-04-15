@@ -23,6 +23,7 @@ struct ResumoCompra: View {
     @State var nomePassageiro: String
     @State var precoFixo = "1570,99"
     
+    //MARK: Inicio da pagina
     var body: some View {
         ZStack { // Camada base
             ScrollView { // Adicionado para garantir que caiba em telas menores
@@ -31,14 +32,14 @@ struct ResumoCompra: View {
                         .font(Font.custom("Baloo2-Medium", size: 20))
                         .foregroundColor(Color.azulMedio)
                     
-                    // Card de Resumo
+                    //MARK: Card de Resumo
                     CardResumoCompra(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: nomePassageiro)
                     
                     Text("Realize o pagamento")
                         .font(Font.custom("Baloo2-Medium", size: 20))
                         .foregroundColor(Color.azulMedio)
                     
-                    // Área de Pagamento
+                    //MARK: Área de Pagamento
                     VStack(spacing: 20) {
                         HStack {
                             Text("Valor total")
@@ -53,7 +54,7 @@ struct ResumoCompra: View {
                             .frame(height: 1)
                             .foregroundColor(Color.azulMedio)
                         
-                        // QR Code
+                        //MARK: QR Code
                         VStack {
                             Image("qrcode") // Certifique-se que o asset existe
                                 .resizable()
@@ -68,8 +69,7 @@ struct ResumoCompra: View {
                         Button(action: {
                             withAnimation(.spring()) {
                                 mostrarConfirmacao = true
-                            }
-                        }) {
+                            } }) {
                             HStack {
                                 Text("Copiar Codigo")
                                     .foregroundColor(Color.azulEscuro)
@@ -92,7 +92,7 @@ struct ResumoCompra: View {
                 .blur(radius: mostrarConfirmacao ? 4 : 0) // Efeito visual de fundo
             }
             
-            // Camada do Pop-up (Sobreposição)
+            //MARK: Camada do Pop-up (Sobreposição)
             if mostrarConfirmacao {
                 Color.black.opacity(0.4)
                     .ignoresSafeArea()
@@ -116,7 +116,7 @@ struct ResumoCompra: View {
                             .multilineTextAlignment(.center)
                     }
                     
-                    // Botão de ação do Pop-up
+                    //MARK: Botão de ação do Pop-up
                     NavigationLink(destination: InfoPassagem(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: nomePassageiro)) {
                         Text("OK")
                             .font(Font.custom("Baloo2-SemiBold", size: 18))

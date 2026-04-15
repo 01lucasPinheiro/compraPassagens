@@ -15,7 +15,6 @@ struct CardLogo: View {
 
 
         }.padding()
-            //.background(Color.gray)
     }
 }
 

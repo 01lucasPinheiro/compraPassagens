@@ -21,15 +21,17 @@ struct ResumoViagem: View {
     @State var siglaIda: String
     @State var siglaVolta: String
     
-    
     @State var precoFixo = "1570,99"
     
+    //MARK: Inicio da pagina
     var body: some View {
+        
         ScrollView(.vertical, showsIndicators: true) {
+            
             VStack(spacing: 20) {
                 Spacer()
                 VStack(alignment: .leading, spacing: 5) {
-                    HStack(){
+                    HStack(){ //Texto
                         Spacer()
                         Text("Resumo de sua viagem")
                             .font(.custom("Baloo 2", size: 16).weight(.medium))
@@ -40,8 +42,10 @@ struct ResumoViagem: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 30)
                 
+                //MARK: Card de Resumo de Viagem
                 CardResumoViagem(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta)
                 
+                //MARK: Escolha de tarifa
                 Group {
                     DisclosureGroup(tarifa, isExpanded: $estaExpandidoTarifa) {
                         VStack(alignment: .leading) {
@@ -62,7 +66,7 @@ struct ResumoViagem: View {
                     .background(Color.azulClaro)
                     .cornerRadius(10)
                     
-                    // Seção Seguro
+                    //MARK: Seção Seguro
                     DisclosureGroup(seguro, isExpanded: $estaExpandidoSeguro) {
                         VStack(alignment: .leading) {
                             Divider()
@@ -86,6 +90,7 @@ struct ResumoViagem: View {
                 .padding(.horizontal, 30)
                 .foregroundStyle(Color.azulEscuro)
                 
+                //MARK: Botão de continuar compra
                 NavigationLink(destination: TelaLogin(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: "")) {
                     Text("Continuar compra")
                         .font(Font.custom("Baloo2-Medium", size: 16))
@@ -96,6 +101,7 @@ struct ResumoViagem: View {
                         .cornerRadius(50)
                 }
                 
+                //MARK: Apresentando preço
                 VStack(alignment: .leading, spacing: 10) {
                     HStack{
                         Spacer()
@@ -105,6 +111,7 @@ struct ResumoViagem: View {
                         Spacer()
                     }.padding(.top,20)
                     
+                    //MARK: Valor total
                     VStack(spacing: 10) {
                         HStack {
                             Text("Valor total")
@@ -128,9 +135,7 @@ struct ResumoViagem: View {
                     }
                     .padding(20)
                     .background(Color.azulEscuro)
-                    //.cornerRadius(10)
                 }
-                //.padding(.horizontal, 30)
                 
                 Spacer(minLength: 40)
             }

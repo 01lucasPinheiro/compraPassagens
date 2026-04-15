@@ -25,7 +25,9 @@ struct InformacaoPassageiros: View {
     @State var horarioIdaFixo = "17:30"
     @State var horarioVoltaFixo = "12:17"
     
+    //MARK: Inicio da pagina
     var body: some View {
+        
         VStack{
             Text("Informações Passageiros")
                 .font(Font.custom("Baloo2-Medium", size: 20))
@@ -47,7 +49,6 @@ struct InformacaoPassageiros: View {
                         .foregroundColor(Color.azulEscuro)
                         .background(Color.white.opacity(0.7))
                         .cornerRadius(10)
-                        
                 }
                 VStack{
                     HStack{
@@ -95,8 +96,6 @@ struct InformacaoPassageiros: View {
                         .background(Color.white.opacity(0.7))
                         .cornerRadius(10)
                 }.padding(.bottom, 5)
-                
-                    
                     
                 }
             .padding(20)
@@ -104,7 +103,7 @@ struct InformacaoPassageiros: View {
             .cornerRadius(10)
             .padding(.horizontal, 50)
             
-                        
+            //MARK: Botão de Avançar
             NavigationLink(destination: InformacoesPagamento(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: nomePassageiro)) {
                 VStack{
                     Text("Avançar")
@@ -116,7 +115,6 @@ struct InformacaoPassageiros: View {
                 .background(Color.azulMedio)
                 .cornerRadius(50)
                 .padding(.top, 10)
-
             }
         }
     }

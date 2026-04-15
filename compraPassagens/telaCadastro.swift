@@ -16,6 +16,20 @@ struct telaCadastro: View {
     @State private var senha: String = ""
     let label: String
     
+    @State var origem: String
+    @State var destino: String
+    @State var classe: String
+    @State var qtdAdultos: Int
+    @State var dataIda: String
+    @State var siglaIda: String
+    @State var siglaVolta: String
+    @State var nomePassageiro: String
+    
+    //Card fixo
+    @State var precoFixo = "1570,99"
+    @State var horarioIdaFixo = "17:30"
+    @State var horarioVoltaFixo = "12:17"
+    
     var formularioValido: Bool {
 
         !email.trimmingCharacters(in: .whitespaces).isEmpty && senha.count >= 6
@@ -60,7 +74,7 @@ struct telaCadastro: View {
                 }.padding(30)
                 VStack{
                     
-                    NavigationLink(destination: InformacaoPassageiros(origem: "", destino: "", classe: "", qtdAdultos: 2, dataIda: "", siglaIda: "", siglaVolta: "", nomePassageiro: "")){
+                    NavigationLink(destination: InformacaoPassageiros(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: nomePassageiro)) {
                         Text("Avançar")
                             .font(Font.custom("Baloo2-Medium", size: 16))
                             .foregroundColor(formularioValido ? Color.branco : Color.azulMedio)
@@ -77,5 +91,5 @@ struct telaCadastro: View {
 
 
 #Preview {
-    telaCadastro(label: "")
+    telaCadastro(label: "",origem: "", destino: "", classe: "", qtdAdultos: 1, dataIda: "", siglaIda: "", siglaVolta: "", nomePassageiro: "")
 }

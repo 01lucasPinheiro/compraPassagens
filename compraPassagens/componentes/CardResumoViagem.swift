@@ -30,7 +30,7 @@ struct CardResumoViagem: View {
                     VStack{
                         VStack{
                             HStack(alignment: .center) {
-                                Image(systemName: "airplane.circle.fill") // Substitua pela sua imagem
+                                Image(systemName: "airplane.circle.fill") 
                                     .resizable()
                                     .scaledToFit()
                                     .frame(height: 24)

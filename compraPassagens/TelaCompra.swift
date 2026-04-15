@@ -11,10 +11,13 @@ struct TelaCompra: View {
     
     // Lista de aeroportos válidos
     let aeroportosValidos = ["Guarulhos", "Congonhas", "Galeão", "Confins","Brasília","Salvador"]
+    
     // Lógica de validação: remove espaços e ignora maiúsculas/minúsculas
     var destinoEhValido: Bool {
         aeroportosValidos.contains { $0.lowercased() == destino.trimmingCharacters(in: .whitespaces).lowercased() }
     }
+    
+    //Para facilitar a pesquisa do usuário
     var sugestoes: [String] {
         if destino.isEmpty || destinoEhValido {
             return []
@@ -23,16 +26,14 @@ struct TelaCompra: View {
         }
     }
 
+    //MARK: Inicio da página
     var body: some View {
         NavigationStack {
-            
             ScrollView(.vertical, showsIndicators: true) {
                 ZStack {
-                    //VsStack principal engloba todo projeto
                     VStack(spacing: 5) {
                         
-                        //Header
-                        
+                        //MARK: Header
                         VStack (spacing: -10){
                             CardLogo()
                             
@@ -43,6 +44,7 @@ struct TelaCompra: View {
                                     .padding()
                                 Spacer()
                             }
+                            
                             VStack(spacing: 0) {
                                 VStack { // Campo de Busca
                                     HStack(spacing: 10) {
@@ -50,10 +52,10 @@ struct TelaCompra: View {
                                             .font(Font.custom("Inter", size: 16))
                                             .foregroundColor(Color.azulEscuro)
                                         
-                                        NavigationLink(destination: TelaFiltro(destino: destino)) {
+                                        NavigationLink(destination: TelaFiltro(destino: destino)) { //Icone de lupa
                                             Image(systemName: "magnifyingglass")
                                                 .font(.title)
-                                                .foregroundColor(destinoEhValido ? Color.azulEscuro : .gray.opacity(0.5))
+                                                .foregroundColor(destinoEhValido ? Color.azulEscuro : Color.azulEscuro.opacity(0.5))
                                         }
                                         .disabled(!destinoEhValido)
                                     }
@@ -63,8 +65,8 @@ struct TelaCompra: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(Color.azulEscuro)
                                 )
-                                //resolver depois
-                                
+
+                                //Lógica que permite sugerir opções para usuario
                                     VStack(alignment: .leading, spacing: 0) {
                                         ForEach(sugestoes, id: \.self) { item in
                                             Button(action: {
@@ -83,7 +85,6 @@ struct TelaCompra: View {
                                     .background(Color.white)
                                     .cornerRadius(10)
                                     .shadow(radius: 4)
-                                    // Ajuste para a lista flutuar levemente
                                     .padding(.top, 5)
                                 }
                             }
@@ -92,7 +93,7 @@ struct TelaCompra: View {
                         .padding()
                         
                         
-                        //Roteiro prontos
+                        //MARK: Roteiro prontos
                         VStack(spacing: -20){
                             HStack {
                                 Text("Roteiros prontos")
@@ -105,8 +106,7 @@ struct TelaCompra: View {
                             .padding(.horizontal, 30)
                             .padding(.top)
                             
-                            
-                            //HStack {
+                            //MARK: Cards dos Roteiros prontos
                             VStack{
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     LazyHStack(spacing:15) {
@@ -114,22 +114,16 @@ struct TelaCompra: View {
                                         CardRoteiroPronto(imagem: "cancun", destino: "Cancun")
                                         CardRoteiroPronto(imagem: "italia", destino: "Italia")
                                         CardRoteiroPronto(imagem: "franca", destino: "França")
-                                        
-                                        //CardRoteiroPronto(imagem: "imagem1")
-                                        
+                                                                                
                                     }.padding(30)
                                 }
                                 .scrollTargetLayout()
                                 .frame(maxWidth: .infinity)
-                                
                             }
                         }
                         .background(Color.laranja)
-                        
-                        
-                        
-                        
-                        //Promocoes carrosel
+                                                
+                        //MARK: Promoções carrosel
                         VStack {
                             HStack {
                                 Text("Promoções")
@@ -140,7 +134,7 @@ struct TelaCompra: View {
                             }.padding(.horizontal,30)
                         }
                         
-                        VStack{
+                        VStack{ //MARK: Cards de promoção
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 20) {
                                     CardPromocional(Imagem: "imgTokio" ,DataIda: "Qui, 23/04", DataVolta: "Qui, 30/04", Preco: "6.000", Destino: "Tóquio")
@@ -162,6 +156,7 @@ struct TelaCompra: View {
                         .scrollTargetBehavior(.viewAligned)
                         .contentMargins(.horizontal, 10, for: .scrollContent)
                         
+                        //MARK: Call to Action para o "Blog"
                         VStack{
                             Text("Fique por dentro das experiências dos outros Viajantes!")
                                 .font(Font.custom("Baloo2-Medium", size: 13))
@@ -174,8 +169,8 @@ struct TelaCompra: View {
                         }
                         .padding(.top,15)
                     }
-                }
-            }
+                } //Final da ZStack
+            } //Final da ScrollView
         }
     }
 }
