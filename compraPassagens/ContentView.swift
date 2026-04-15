@@ -20,17 +20,37 @@ struct ContentView: View {
                 }
             // ABA 2
             
-            Text("Segunda Tela")
+            Text("Tela gostei")
                 .tabItem {
-                    Image("iconGostei")
+                    Image("iconFavoritos")
                         .background(Color.red.opacity(1))
                         .foregroundColor(Color.red)// nome do asset
                     
-                    Text(Padroes.homeString)
+                    Text(Padroes.likeString)
                         .font(Font.custom("Inter", size: 10))
                         .foregroundColor(Color.azulClaro)
                 }
-        }
+            Text("Tela Passagens")
+                .tabItem {
+                    Image("iconRoteiro")
+                        .background(Color.red.opacity(1))
+                        .foregroundColor(Color.red)// nome do asset
+                    
+                    Text(Padroes.passagensString)
+                        .font(Font.custom("Inter", size: 10))
+                        .foregroundColor(Color.azulClaro)
+                }
+            Text("Tela Perfil")
+                .tabItem {
+                    Image("iconPerfil")
+                        .background(Color.red.opacity(1))
+                        .foregroundColor(Color.red)// nome do asset
+                    
+                    Text(Padroes.perfilString)
+                        .font(Font.custom("Inter", size: 10))
+                        .foregroundColor(Color.azulClaro)
+                }
+        }.tint(Color.azulEscuro)
     }
 }
 

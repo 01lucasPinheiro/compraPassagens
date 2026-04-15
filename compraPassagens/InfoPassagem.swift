@@ -16,7 +16,7 @@ struct InfoPassagem: View {
     @State var siglaIda: String
     @State var siglaVolta: String
     @State var nomePassageiro: String
-        @State var precoFixo = "1570,99"
+    @State var precoFixo = "1570,99"
     
     var body: some View {
         // ZStack apenas para o fundo azul ocupar a tela toda

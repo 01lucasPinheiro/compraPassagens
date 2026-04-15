@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ResumoViagem: View {
     @State private var seguro = "Escolha seu seguro"
-    @State private var estaExpandido: Bool = false
+    @State private var tarifa = "Escolha sua tarifa"
+    @State private var estaExpandidoTarifa: Bool = false
+    @State private var estaExpandidoSeguro: Bool = false
     
     @State var origem: String
     @State var destino: String
@@ -19,123 +21,94 @@ struct ResumoViagem: View {
     @State var siglaIda: String
     @State var siglaVolta: String
     
-    //Card fixo
+    
     @State var precoFixo = "1570,99"
-    @State var horarioIdaFixo = "17:30"
-    @State var horarioVoltaFixo = "12:17"
     
     var body: some View {
-        
         ScrollView(.vertical, showsIndicators: true) {
-            
-            ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing: 20) {
                 
-                
-                VStack(spacing: 20){
-                    
-                    VStack(spacing: 2) {
+                VStack(alignment: .leading, spacing: 5) {
+                    HStack(){
+                        Spacer()
                         Text("Resumo de sua viagem")
                             .font(.custom("Baloo 2", size: 16).weight(.medium))
                             .foregroundColor(Color.azulMedio)
+                        Spacer()
                     }
-                    
-                    CardResumoViagem(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta)
-                    
-//                    VStack {
-//                        Text("Horários em hora local de cada cidade")
-//                            .font(.custom("Inter", size: 12))
-//                            .foregroundColor(Color.azulMedio)
-//                    }
-                    
-                    VStack{
-                        DisclosureGroup(seguro, isExpanded: $estaExpandido) {
-                            VStack(alignment: .leading) {
-                                Divider()
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    LazyHStack{
-                                        CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
-                                                                                     "Cobertura contra roubo",
-                                                                                     "Guincho ilimitado",
-                                                                                     "Proteção de vidros"])
-                                        
-                                        CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
-                                                                                     "Cobertura contra roubo",
-                                                                                     "Guincho ilimitado",
-                                                                                     "Proteção de vidros"])
-                                        CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
-                                                                                     "Cobertura contra roubo",
-                                                                                     "Guincho ilimitado",
-                                                                                     "Proteção de vidros"])
-                                        
-                                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 30)
+                
+                CardResumoViagem(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta)
+                
+                Group {
+                    DisclosureGroup(tarifa, isExpanded: $estaExpandidoTarifa) {
+                        VStack(alignment: .leading) {
+                            Divider()
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 15) {
+                                    CardSeguro(titulo: "Tarifa 01", beneficios: ["1 bolsa ou mochila até 10 kg", "1 mala pequena até 12 kg", "Remarcação com taxa + diferença de preço"],preco: "00,00")
+                                    
+                                    CardSeguro(titulo: "Tarifa 02", beneficios: ["1 bolsa ou mochila até 10 kg", "1 mala pequena até 12 kg", "Remarcação com taxa + diferença de preço","Solicitação de Upgrade de cabine com trechos"],preco: "99,00")
+                                    CardSeguro(titulo: "Tarifa 03", beneficios: ["1 bolsa ou mochila até 10 kg", "1 mala pequena até 12 kg", "Remarcação com taxa + diferença de preço","Solicitação de Upgrade de cabine com trechos","Seleção de assento Comum"], preco: "143,00")
+                                    
                                 }
                             }
-                            .padding()
                         }
-                        //.padding()
-                        .padding(20)
-                        .background(Color.azulClaro)
-                        .foregroundStyle(Color.azulEscuro)
-                        .font(Font.custom("Inter", size: 14))
-                        .cornerRadius(10)
-                        
-                    }.padding(30)
+                        .padding(.top)
+                    }
+                    .padding(20)
+                    .background(Color.azulClaro)
+                    .cornerRadius(10)
                     
-                    VStack{
-                        DisclosureGroup(seguro, isExpanded: $estaExpandido) {
-                            VStack(alignment: .leading) {
-                                Divider()
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    LazyHStack{
-                                        CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
-                                                                                     "Cobertura contra roubo",
-                                                                                     "Guincho ilimitado",
-                                                                                     "Proteção de vidros"])
-                                        
-                                        CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
-                                                                                     "Cobertura contra roubo",
-                                                                                     "Guincho ilimitado",
-                                                                                     "Proteção de vidros"])
-                                        CardSeguro(titulo: "Tarifa 01", beneficios: ["Assistência 24h",
-                                                                                     "Cobertura contra roubo",
-                                                                                     "Guincho ilimitado",
-                                                                                     "Proteção de vidros"])
-                                        
-                                    }
+                    // Seção Seguro
+                    DisclosureGroup(seguro, isExpanded: $estaExpandidoSeguro) {
+                        VStack(alignment: .leading) {
+                            Divider()
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 15) {
+                                    CardSeguro(titulo: "Sem seguro viagem", beneficios: ["O país para onde você vai pode exigir seguro viagem como condição de entrada. Garanta o seu antes de viajar."],preco:"00,00")
+                                    
+                                    CardSeguro(titulo: "Assistência ouro", beneficios: ["Cancelamento grátis", "Despesas hospitalares de até USD$ 100.000", "Despesas farmacêuticas de até USD$ 2.000","Acesso à Sala Vip em caso de atraso do voo"],preco:"31,00")
+                                    
+                                    CardSeguro(titulo: "Assistência platina", beneficios: ["Cancelamento grátis", "Despesas hospitalares de até USD$ 150.000", "Despesas farmacêuticas de até USD$ 2.500","Acesso à Sala Vip em caso de atraso do voo"],preco:"37,00")
+                                    
                                 }
                             }
-                            .padding()
                         }
-                        //.padding()
-                        .padding(20)
-                        .background(Color.azulClaro)
-                        .foregroundStyle(Color.azulEscuro)
-                        .font(Font.custom("Inter", size: 14))
-                        .cornerRadius(10)
-                        
-                    }.padding(30)
-                    
-                    NavigationLink(destination: TelaLogin(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: "" )){
-                        Text("Continuar compra")
-                            .font(Font.custom("Baloo2-Medium", size: 16))
-                            .frame(maxWidth:150)
-                            .padding(5)
-                            .background(Color.azulMedio)
-                            .foregroundColor(Color.bege)
-                        .cornerRadius(50)}
-                    
-                    Spacer(minLength: 40)
-                    VStack (spacing: 20){
+                        .padding(.top)
+                    }
+                    .padding(20)
+                    .background(Color.azulClaro)
+                    .cornerRadius(10)
+                }
+                .padding(.horizontal, 30)
+                .foregroundStyle(Color.azulEscuro)
+                
+                NavigationLink(destination: TelaLogin(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: "")) {
+                    Text("Continuar compra")
+                        .font(Font.custom("Baloo2-Medium", size: 16))
+                        .frame(maxWidth: 150)
+                        .padding(.vertical, 10)
+                        .background(Color.azulMedio)
+                        .foregroundColor(Color.bege)
+                        .cornerRadius(50)
+                }
+                
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack{
+                        Spacer()
                         Text("Taxas adicionais")
                             .font(.custom("Baloo 2", size: 16).weight(.medium))
                             .foregroundColor(Color.azulMedio)
+                        Spacer()
                     }
                     
-                    VStack (spacing: 10){
-                        
-                        HStack{
+                    VStack(spacing: 10) {
+                        HStack {
                             Text("Valor total")
-                                .font(.custom("Baloo 2", size:20).weight(.medium))
+                                .font(.custom("Baloo 2", size: 20).weight(.medium))
                                 .foregroundColor(Color.bege)
                             
                             Spacer()
@@ -145,28 +118,26 @@ struct ResumoViagem: View {
                                 .foregroundColor(Color.bege)
                         }
                         
-                        // Linha divisória (Substitui o Rectangle com stroke)
                         Divider()
                             .background(Color.azulClaro)
                         
-                        // Informação adicional
                         Text("Incluindo taxas e impostos")
                             .font(.custom("Inter", size: 12).weight(.medium))
                             .foregroundColor(Color.bege)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding(20)
-                    .frame(width: 350, height: 90)
-                    .cornerRadius(10)
                     .background(Color.azulMedio)
-                    
-                    
-                    
+                    .cornerRadius(10)
                 }
+                .padding(.horizontal, 30)
+                
+                Spacer(minLength: 40)
             }
+            .padding(.vertical)
         }
     }
 }
-
 #Preview {
     ResumoViagem(origem: "", destino: "", classe: "", qtdAdultos: 2, dataIda: "", siglaIda: "", siglaVolta: "")
 }
