@@ -55,10 +55,36 @@ struct TelaFiltro: View {
     var body: some View {
         ScrollView { // Adicionado ScrollView para telas menores
             VStack(spacing: 20) {
+                Spacer()
                 Text("Para onde vamos?")
                     .font(Font.custom("Baloo2-Medium", size: 20))
                     .foregroundStyle(Color.azulMedio)
                     .padding(.top)
+                
+                VStack{
+                    HStack{
+                        Text("Apenas Ida")
+                            .foregroundStyle(Color.verde)
+                            .frame(maxWidth: 110, maxHeight: 32)
+                            .font(Font.custom("Baloo2-Medium", size: 16))
+                            .background(Color.azulEscuro)
+                            .cornerRadius(50)
+                        Spacer()
+                            Text("Ida e Volta")
+                                .foregroundStyle(Color.azulEscuro)
+                                .frame(maxWidth: 110, maxHeight: 32)
+                                .font(Font.custom("Baloo2-Medium", size: 16))
+                                .background(Color.azulClaro)
+                                .cornerRadius(50)
+                        Spacer()
+                            Text("Multidestino")
+                                .foregroundStyle(Color.azulEscuro)
+                                .frame(maxWidth: 110, maxHeight: 32)
+                                .font(Font.custom("Baloo2-Medium", size: 16))
+                                .background(Color.azulClaro)
+                                .cornerRadius(50)
+                    }.padding(20)
+                    }
 
                 VStack(spacing: 16) {
                     // SEÇÃO: ORIGEM E DESTINO
@@ -117,6 +143,7 @@ struct TelaFiltro: View {
                         DatePicker("Data de ida", selection: $dataViagem, displayedComponents: .date)
                             .datePickerStyle(.compact)
                             .foregroundColor(Color.azulEscuro)
+                            .tint(Color.azulMedio)
                     }
                     .padding()
                     .overlay(

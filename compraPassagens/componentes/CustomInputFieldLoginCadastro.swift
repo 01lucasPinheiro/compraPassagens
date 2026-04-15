@@ -12,7 +12,7 @@ struct CustomInputField: View {
     @Binding var text: String // Permite que o valor seja alterado de fora
 
     var body: some View {
-        VStack {
+        VStack (spacing:0){
             HStack {
                 Text(label)
                     .font(Font.custom("Baloo2-Medium", size: 16))
@@ -24,7 +24,7 @@ struct CustomInputField: View {
                 .foregroundStyle(Color.azulEscuro)
         }
         .padding(20)
-        .frame(maxHeight: 90)
+        .frame(maxHeight: 75)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.azulEscuro, lineWidth: 1)

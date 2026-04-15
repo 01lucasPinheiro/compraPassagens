@@ -33,6 +33,7 @@ struct TelaLogin: View {
     var body: some View {
         ZStack{
             VStack{
+                Spacer()
                 VStack{
                     Text("Faça seu login ou cadastre-se para continuar")
                         .multilineTextAlignment(.center)
@@ -52,7 +53,7 @@ struct TelaLogin: View {
                             .background(Color.azulEscuro)
                             .cornerRadius(50)
                         Spacer()
-                        NavigationLink(destination: telaCadastro()){
+                        NavigationLink(destination: telaCadastro(label: "")){
                             Text("Cadastro")
                                 .foregroundStyle(Color.azulEscuro)
                                 .frame(maxWidth: 120, maxHeight: 32)
@@ -66,14 +67,23 @@ struct TelaLogin: View {
                     VStack{
                         CustomInputField(label: "E-MAIL", placeholder: "Digite seu email", text: $email)
                         
-                        SecureField("Digite sua senha", text: $senha)
-                              .padding(20)
-                                    .background(Color.branco)
-                                    .foregroundColor(Color.azulEscuro)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.azulEscuro))
-//                        CustomInputField(label: "SENHA", placeholder: "*********", text: $senha)
+                        VStack (spacing:0){
+                            HStack {
+                                Text("SENHA")
+                                    .font(Font.custom("Baloo2-Medium", size: 16))
+                                    .foregroundStyle(Color.azulMedio)
+                                Spacer()
+                            }
+                            SecureField("Digite sua senha", text: $senha)
+                            .foregroundColor(Color.azulEscuro)
+
+                        }
+                        .padding(20)
+                        .frame(maxHeight: 75)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.azulEscuro, lineWidth: 1)
+                        )
                         
                 }.padding(30)
                 VStack{
@@ -84,10 +94,10 @@ struct TelaLogin: View {
                     NavigationLink(destination: InformacaoPassageiros(origem: origem, destino: destino, classe: classe, qtdAdultos: qtdAdultos, dataIda: dataIda, siglaIda: siglaIda, siglaVolta: siglaVolta, nomePassageiro: nomePassageiro)) {
                         Text("Avançar")
                             .font(Font.custom("Baloo2-Medium", size: 16))
-                            .foregroundColor(.white)
+                            .foregroundColor(formularioValido ? Color.branco : Color.azulMedio)
                             .frame(width: 179, height: 32)
                             // Muda a cor para cinza se estiver inválido
-                            .background(formularioValido ? Color.azulMedio : Color.gray)
+                            .background(formularioValido ? Color.azulMedio : Color.azulClaro)
                             .cornerRadius(50)
                     }
 

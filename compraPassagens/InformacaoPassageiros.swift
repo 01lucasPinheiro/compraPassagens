@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct InformacaoPassageiros: View {
+    @State var email: String = ""
+    @State var dataNasc: String = ""
+    @State var passaport: String = ""
+    
     @State var origem: String
     @State var destino: String
     @State var classe: String
@@ -40,6 +44,7 @@ struct InformacaoPassageiros: View {
                     TextField("Passageiro", text: $nomePassageiro)
                         .padding(.all, 10)
                         .frame(width: 270)
+                        .foregroundColor(Color.azulEscuro)
                         .background(Color.white.opacity(0.7))
                         .cornerRadius(10)
                         
@@ -52,9 +57,10 @@ struct InformacaoPassageiros: View {
                         
                         Spacer()
                     }.padding(-2)
-                    TextField("Email", text: .constant(""))
+                    TextField("Email", text: $email)
                         .padding(.all, 10)
                         .frame(width: 270)
+                        .foregroundColor(Color.azulEscuro)
                         .background(Color.white.opacity(0.7))
                         .cornerRadius(10)
                 }
@@ -66,9 +72,10 @@ struct InformacaoPassageiros: View {
                         
                         Spacer()
                     }.padding(-2)
-                    TextField("Data de nascimento", text: .constant(""))
+                    TextField("Data de nascimento", text: $dataNasc)
                         .padding(.all, 10)
                         .frame(width: 270)
+                        .foregroundColor(Color.azulEscuro)
                         .background(Color.white.opacity(0.7))
                         .cornerRadius(10)
                 }
@@ -81,9 +88,10 @@ struct InformacaoPassageiros: View {
                         
                         Spacer()
                     }.padding(-2)
-                    TextField("Passaporte", text: .constant(""))
+                    TextField("Passaporte", text: $passaport)
                         .padding(.all, 10)
                         .frame(width: 270)
+                        .foregroundColor(Color.azulEscuro)
                         .background(Color.white.opacity(0.7))
                         .cornerRadius(10)
                 }.padding(.bottom, 5)

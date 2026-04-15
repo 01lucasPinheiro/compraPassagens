@@ -63,7 +63,7 @@ struct TelaCompra: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(Color.azulEscuro)
                                 )
-                                //resolver depois 
+                                //resolver depois
                                 
                                     VStack(alignment: .leading, spacing: 0) {
                                         ForEach(sugestoes, id: \.self) { item in
@@ -168,7 +168,7 @@ struct TelaCompra: View {
                                 .foregroundStyle(Color.azulMedio)
                             
                             cardBlog(imagem: "ushuaia",titulo: "Ushuaia é incrível!", texto: "A cidade de Ushuaia é umas das queridinhas quando se fala em frio...")
-                            cardBlog(imagem: "jericoacoara", titulo: "Jericoacoara ou Maragogi?", texto: "Muitas pessoas não sabem, mas é possível conhecer...")
+                            cardBlog(imagem: "Jericoacoara", titulo: "Jericoacoara ou Maragogi?", texto: "Muitas pessoas não sabem, mas é possível conhecer...")
                             cardBlog(imagem: "gramado", titulo: "5 razões para ir a Gramado", texto: "Ao subirmos a serra já nos deparamos com a sua rica vegetação...")
                             
                         }

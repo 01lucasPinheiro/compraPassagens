@@ -13,10 +13,19 @@ struct telaCadastro: View {
     @State private var email: String = ""
     @State private var telefone: String = ""
     
+    @State private var senha: String = ""
+    let label: String
+    
+    var formularioValido: Bool {
+
+        !email.trimmingCharacters(in: .whitespaces).isEmpty && senha.count >= 6
+    }
+    
     
     var body: some View {
         ZStack{
             VStack(spacing: 0){
+                Spacer()
                 VStack{
                     Text("Cadastre-se para continuar")
                         .multilineTextAlignment(.center)
@@ -29,10 +38,24 @@ struct telaCadastro: View {
                     CustomInputField(label: "NOME", placeholder: "Insira seu nome completo", text: $nomeCompleto)
                     CustomInputField(label: "E-MAIL", placeholder: "seuemail@gmail.com", text: $email)
                     CustomInputField(label: "TELEFONE", placeholder: "00 00000-0000", text: $telefone)
-                    CustomInputField(label: "SENHA", placeholder: "Crie uma senha", text: $telefone)
                     
-                    
-                    
+                    VStack (spacing:0){
+                        HStack {
+                            Text("SENHA")
+                                .font(Font.custom("Baloo2-Medium", size: 16))
+                                .foregroundStyle(Color.azulMedio)
+                            Spacer()
+                        }
+                        SecureField("Digite sua senha", text: $senha)
+                        .foregroundColor(Color.azulEscuro)
+
+                    }
+                    .padding(20)
+                    .frame(maxHeight: 75)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.azulEscuro, lineWidth: 1)
+                    )
                     
                 }.padding(30)
                 VStack{
@@ -40,10 +63,11 @@ struct telaCadastro: View {
                     NavigationLink(destination: InformacaoPassageiros(origem: "", destino: "", classe: "", qtdAdultos: 2, dataIda: "", siglaIda: "", siglaVolta: "", nomePassageiro: "")){
                         Text("Avançar")
                             .font(Font.custom("Baloo2-Medium", size: 16))
-                            .foregroundColor(.white) // texto não fique no azul padrão de links
+                            .foregroundColor(formularioValido ? Color.branco : Color.azulMedio)
                             .frame(width: 179, height: 32)
-                            .background(Color.azulMedio)
-                        .cornerRadius(50)}
+                            // Muda a cor para cinza se estiver inválido
+                            .background(formularioValido ? Color.azulMedio : Color.azulClaro)
+                            .cornerRadius(50)}
                 }
             Spacer()
                 }
@@ -53,5 +77,5 @@ struct telaCadastro: View {
 
 
 #Preview {
-    telaCadastro()
+    telaCadastro(label: "")
 }
